@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z22 Technologies - Quant Hedge Fund</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eee;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 80px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #000;
+        }
+
+        /* Mobile menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 10rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #000;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-button {
+            background: #000;
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #333;
+        }
+
+        /* Section styles */
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #000;
+        }
+
+        /* Color legend */
+        .color-legend {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 8px;
+        }
+
+        .legend-color.asset {
+            background: #e3f2fd;
+        }
+
+        .legend-color.target {
+            background: #f3e5f5;
+        }
+
+        .legend-color.product {
+            background: #e8f5e8;
+        }
+
+        .legend-color.liquidity {
+            background: #fff3e0;
+        }
+        .strategy-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #ddd;
+            background: #fff;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #000;
+            color: #fff;
+            border-color: #000;
+        }
+
+        /* Card grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 2rem;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .card-category {
+            background: #f8f9fa;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #000;
+        }
+
+        .card-aum {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            min-height: 4.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            min-height: 2.5rem;
+            align-content: flex-start;
+        }
+
+        .tag {
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .tag.asset {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .tag.target {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        .tag.product {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        .tag.liquidity {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+
+        .card-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .btn-primary {
+            background: #000;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: #000;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #000;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80%;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Team grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            background: #f8f9fa;
+        }
+
+        .team-member h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #000;
+        }
+
+        .team-member .role {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member .education {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        .team-member .linkedin {
+            margin-top: 1rem;
+        }
+
+        .linkedin-icon {
+            width: 24px;
+            height: 24px;
+            transition: opacity 0.3s;
+        }
+
+        .linkedin-icon:hover {
+            opacity: 0.7;
+        }
+
+        /* About us content */
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .about-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .about-card p {
+            margin: 0;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            color: #fff;
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-left {
+            text-align: left;
+        }
+
+        .footer-center {
+            text-align: center;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer h4 {
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-buttons {
+                flex-direction: column;
+            }
+
+            .strategy-filters {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 1rem;
+            }
+        }
+
+        .hidden{display:none !important;}
+    
+    .team-member .linkedin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+    }
+    .linkedin-icon {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
+    
+    .about-card {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .about-card h4 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .about-card p {
+        text-align: center;
+    }
+    
+/* --- Align About cards across columns/rows --- */
+.about-content { align-items: stretch; }
+.about-card { height: 100%; display: flex; flex-direction: column; justify-content: flex-start; }
+.about-card h4 { 
+    text-align: center; 
+    margin-bottom: 1rem; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 2.75rem; /* ensure headings line up across cards */
+}
+.about-card p { 
+    text-align: center; 
+    margin: 0; 
+    flex-grow: 1; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 5.25rem; /* ensure body text baselines align across cards */
+}
+
+/* --- Consistent LinkedIn icon alignment within team cards --- */
+.team-member { display: flex; flex-direction: column; justify-content: flex-start; }
+.team-member .linkedin { 
+    margin-top: auto; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+.linkedin-icon { width: 24px; height: 24px; object-fit: contain; }
+
+
+.about-content { display: flex; align-items: stretch; }
+.about-card { display: flex; flex-direction: column; justify-content: flex-start; height: 100%; }
+.about-card h4 { min-height: 3rem; display: flex; align-items: center; justify-content: center; }
+.about-card p { flex-grow: 1; display: flex; align-items: flex-start; justify-content: center; text-align: center; }
+
+
+/* --- Footer right alignment for Legal/Imprint/Data Security --- */
+.footer-content { display: flex; gap: 2rem; }
+.footer-left { text-align: left; }
+.footer-right { margin-left: auto; text-align: right; }
+
+/* --- Ensure About cards are equal size --- */
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    align-items: stretch; /* stretch children to equal height */
+}
+.about-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    min-height: 220px; /* consistent minimum height across all four boxes */
+}
+.about-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #000;
+    min-height: 2.75rem; /* keep headings aligned */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.about-card p {
+    margin: 0;
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-start; /* start at same top line */
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* --- Keep strategy card sizes consistent when filtering --- */
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center; /* center remaining cards */
+}
+.card-grid .card {
+    width: 350px;           /* consistent card width */
+    max-width: 100%;
+}
+@media (max-width: 768px) {
+    .card-grid .card {
+        width: 100%;        /* full width on small screens */
+    }
+}
+
+
+/* --- Footer inward alignment to visually match card edges --- */
+.footer-content {
+  max-width: 1114px; /* ~3 cards (350px) + 2 gaps (~32px each) */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.footer-right { 
+  margin-left: 0; 
+  text-align: right; 
+}
+@media (max-width: 1024px) {
+  .footer-content {
+    max-width: 960px;
+  }
+}
+@media (max-width: 768px) {
+  .footer-content {
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .footer-left, .footer-right {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+</style>
+    
+    
+<style id="section-spacing-adjustment">
+/* Uniform vertical spacing for key sections (kept readable across viewports) */
+section#about, section#strategies, section#team, section#contact {
+  /* Fallbacks for broad compatibility */
+  padding-top: 64px;
+  padding-bottom: 64px;
+  /* Responsive clamp for modern browsers */
+  padding-block: clamp(56px, 8vw, 112px);
+  /* Avoid anchor overlap when using sticky headers */
+  scroll-margin-top: 80px;
+}
+/* Keep headings flush with the section top */
+section#about h2, section#strategies h2, section#team h2, section#contact h2 {
+  margin-top: 0;
+}
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">
+                <img src="logo.png" class="logo-icon" alt="Z22 Logo" />
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#strategies">Strategies</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Swiss Quant Hedge Fund</h1>
+            <p>Specialized in systematic investment strategies for Traditional Finance and Crypto</p>
+            <a href="#strategies" class="cta-button">Explore Strategies</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-card">
+                <h4>100% Independent</h4>
+                <p>We are proud that our company still belongs 100% to the two founders, Philipp Baumann and Armin Herbsthofer</p>
+            </div>
+            <div class="about-card">
+                <h4>Systematic</h4>
+                <p>We follow a systematic quant approach without any discretionary decision components. The investment process is fully controlled by intelligent algorithms.</p>
+            </div>
+            <div class="about-card">
+                <h4>Spin-Offs</h4>
+                <p>We are proud to be awarded with the spin-off label from ETH Zürich and the University of St. Gallen (HSG)</p>
+            </div>
+            <div class="about-card">
+                <h4>FINMA Regulated</h4>
+                <p>We are regulated as an asset manager of collective assets by the Swiss Financial Market Authority (FINMA)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategies Section -->
+    <section id="strategies" class="section">
+        <h2>Investment Strategies</h2>
+        
+        <div class="color-legend">
+            <div class="legend-item">
+                <div class="legend-color asset"></div>
+                <span>Base Underlying</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color target"></div>
+                <span>Target/Strategy Type</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color product"></div>
+                <span>Product Type</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color liquidity"></div>
+                <span>Liquidity</span>
+            </div>
+        </div>
+
+        <div class="strategy-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="Equity Strategies">Equity Strategies</button>
+            <button class="filter-btn" data-filter="Crypto Strategies">Crypto Strategies</button>
+            <button class="filter-btn" data-filter="Bitcoin">Bitcoin</button>
+            <button class="filter-btn" data-filter="Multi-Asset / Multi-Strategy">Multi-Asset / Multi-Strategy</button>
+        </div>
+
+        <div class="card-grid" id="strategies-grid">
+            <!-- Z22 Smart Mirror -->
+            <div class="card" data-strategy-id="smart-mirror" data-longdesc="Z22 Smart Mirror offers an innovative investment strategy for investors looking for defensive exposure on the US Equity market.
+
+The Z22 Smart Mirror strategy is a systematic  investment strategy that combines US equities (S&amp;P 500) with a statistical tail hedge (Z22 VolaBoost). The strategy is designed for investors who want to participate in the potential upside of the US equity market while having an emotionless and systematically implemented tail hedging component in the strategy. The statistical tail hedge (Z22 VolaBoost) is implemented via long volatility ETFs tracking the VIX Futures." data-category="Equity Strategies">
+                <div class="card-category">Equity Strategies</div>
+                <h3>Z22 Smart Mirror</h3>
+                <p>Defensive strategy consisting of US Equities (S&P 500) combined with a statistical tail hedge.</p>
+                <div class="card-tags">
+                    <span class="tag asset">SPY</span>
+                    <span class="tag target">Defensive Equity</span>
+                    <span class="tag product">AMC</span>
+                    <span class="tag liquidity">Daily</span>
+                </div>
+                <div class="card-buttons">
+                    <button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
+<div id="desc-smart-mirror" class="hidden longdesc"><div class="learnmore-wrap">
+  <table role="table" aria-label="Z22 Smart Mirror details" style="width:100%; border-collapse:collapse; font-size:0.95em;">
+    <tbody>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
+        <td style="padding:6px 8px;">Equity Strategies</td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
+        <td style="padding:6px 8px;">
+          <div class="tags-inline"><span class="tag asset">SPY</span>
+                    <span class="tag target">Defensive Equity</span>
+                    <span class="tag product">AMC</span>
+                    <span class="tag liquidity">Daily</span></div>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
+        <td style="padding:6px 8px;"><div>Z22 Smart Mirror offers an innovative investment strategy for investors looking for defensive exposure on the US Equity market.<br><br>The Z22 Smart Mirror strategy is a systematic  investment strategy that combines US equities (S&amp;P 500) with a statistical tail hedge (Z22 VolaBoost). The strategy is designed for investors who want to participate in the potential upside of the US equity market while having an emotionless and systematically implemented tail hedging component in the strategy. The statistical tail hedge (Z22 VolaBoost) is implemented via long volatility ETFs tracking the VIX Futures.</div></td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Links</th>
+        <td style="padding:6px 8px;"><a href="https://keyinvest-ch-en.ubs.com/product/detail/index/isin/CH0473589759" target="_blank" rel="noopener noreferrer">USD</a> | <a href="https://keyinvest-ch-en.ubs.com/product/detail/index/isin/CH1114374361" target="_blank" rel="noopener noreferrer">EUR</a> | <a href="https://keyinvest-ch-en.ubs.com/product/detail/index/isin/CH0547935129" target="_blank" rel="noopener noreferrer">CHF</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div></div>
+                    <a href="mailto:sales@z22.ch?subject=Z22 Smart Mirror - Information Request" class="btn-secondary">Get Info</a>
+                </div>
+            </div>
+
+            <!-- Z22 Smart Equity -->
+            <div class="card" data-strategy-id="smart-equity" data-longdesc="The Z22 Smart Equity Fund offers an innovative investment strategy that seeks to generate alpha using systematic volatility strategies while offering its investors a long exposure to the US equity market
+
+The Z22 Smart Equity Fund is an investment strategy designed for equity investors seeking exposure to the US equity market in combination with volatility and tail hedging strategies. The program implements long, neutral, and short positions in the VIX futures. The program uses S&amp;P 500 (SPY US) as collateral to increase capital efficiency." data-category="Equity Strategies">
+                <div class="card-category">Equity Strategies</div>
+                <h3>Z22 Smart Equity</h3>
+                <p>Systematic volatility strategies on top of US Equities (S&P 500).</p>
+                <div class="card-tags">
+                    <span class="tag asset">SPY</span>
+                    <span class="tag target">Defensive Equity</span>
+                    <span class="tag product">Fund</span>
+                    <span class="tag liquidity">Weekly</span>
+                </div>
+                <div class="card-buttons">
+                    <button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
+<div id="desc-smart-equity" class="hidden longdesc"><div class="learnmore-wrap">
+  <table role="table" aria-label="Z22 Smart Equity details" style="width:100%; border-collapse:collapse; font-size:0.95em;">
+    <tbody>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
+        <td style="padding:6px 8px;"></td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
+        <td style="padding:6px 8px;">
+          <div class="tags-inline"><span class="tag asset">SPY</span>
+                    <span class="tag target">Defensive Equity</span>
+                    <span class="tag product">Fund</span>
+                    <span class="tag liquidity">Weekly</span></div>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
+        <td style="padding:6px 8px;"><div>The Z22 Smart Equity Fund offers an innovative investment strategy that seeks to generate alpha using systematic volatility strategies while offering its investors a long exposure to the US equity market<br><br>The Z22 Smart Equity Fund is an investment strategy designed for equity investors seeking exposure to the US equity market in combination with volatility and tail hedging strategies. The program implements long, neutral, and short positions in the VIX futures. The program uses S&amp;P 500 (SPY US) as collateral to increase capital efficiency.</div></td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Links</th>
+        <td style="padding:6px 8px;"><a href="https://ifm.li/FundStammdaten.aspx?nid=8207&groupnr=8207&lang=de&id=1414978" target="_blank" rel="noopener noreferrer">R-Tranche</a> | <a href="https://ifm.li/FundStammdaten.aspx?nid=8207&groupnr=8207&lang=de&id=1414952&cookieCheck=true" target="_blank" rel="noopener noreferrer">I-Tranche</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div></div>
+                    <a href="mailto:sales@z22.ch?subject=Z22 Smart Equity - Information Request" class="btn-secondary">Get Info</a>
+                </div>
+            </div>
+
+            <!-- Z22 Smart CP -->
+            <div class="card" data-strategy-id="smart-cp" data-longdesc="Z22 Smart CP combines S&amp;P 500 exposure with a fully systematic option strategy designed for capital preservation. The portfolio is always hedged against major losses using protective puts, with costs partly offset by selling covered calls — aiming for smoother returns, reduced drawdowns, and steady participation in market upside." data-category="Equity Strategies">
+                <div class="card-category">Equity Strategies</div>
+                <h3>Z22 Smart CP</h3>
+                <p>Long US Equities ETF (S&P 500) with systematic option overlay.</p>
+                <div class="card-tags">
+                    <span class="tag asset">SPY</span>
+                    <span class="tag target">Capital Preservation</span>
+                    <span class="tag product">AMC</span>
+                    <span class="tag liquidity">Daily</span>
+                </div>
+                <div class="card-buttons">
+                    <button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
+<div id="desc-smart-cp" class="hidden longdesc"><div class="learnmore-wrap">
+  <table role="table" aria-label="Z22 Smart CP details" style="width:100%; border-collapse:collapse; font-size:0.95em;">
+    <tbody>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
+        <td style="padding:6px 8px;"></td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
+        <td style="padding:6px 8px;">
+          <div class="tags-inline"><span class="tag asset">SPY</span>
+                    <span class="tag target">Capital Preservation</span>
+                    <span class="tag product">AMC</span>
+                    <span class="tag liquidity">Daily</span></div>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
+        <td style="padding:6px 8px;"><div>Z22 Smart CP combines S&amp;P 500 exposure with a fully systematic option strategy designed for capital preservation. The portfolio is always hedged against major losses using protective puts, with costs partly offset by selling covered calls — aiming for smoother returns, reduced drawdowns, and steady participation in market upside.</div></td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Links</th>
+        <td style="padding:6px 8px;"><a href="https://keyinvest-ch-en.ubs.com/product/detail/index/isin/CH0473587282" target="_blank" rel="noopener noreferrer">USD</a> | <a href="https://keyinvest-ch-en.ubs.com/product/detail/index/isin/CH0547925146" target="_blank" rel="noopener noreferrer">CHF</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div></div>
+                    <a href="mailto:sales@z22.ch?subject=Z22 Smart CP - Information Request" class="btn-secondary">Get Info</a>
+                </div>
+            </div>
+
+            <!-- C22 Strategy -->
+            <div class="card" data-strategy-id="c22" data-longdesc="The C22 Strategy offers an interesting opportunity for investors looking for exposure to the crypto space, with a focus on low correlation to traditional assets and the crypto market.
+
+The C22 Strategy is a Machine Learning-driven crypto mid-frequency trend-following strategy that utilizes a systematic approach to long and short futures (perpetuals) trading in the crypto space." data-category="Crypto Strategies">
+                <div class="card-category">Crypto Strategies</div>
+                <h3>C22 Strategy</h3>
+                <p>Machine Learning driven crypto trend-following strategy.</p>
+                <div class="card-tags">
+                    <span class="tag asset">USD</span>
+                    <span class="tag target">Absolute Return</span>
+                    <span class="tag product">Fund</span>
+                    <span class="tag liquidity">Weekly</span>
+                </div>
+                <div class="card-buttons">
+                    <button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
+<div id="desc-c22" class="hidden longdesc"><div class="learnmore-wrap">
+  <table role="table" aria-label="C22 Strategy details" style="width:100%; border-collapse:collapse; font-size:0.95em;">
+    <tbody>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
+        <td style="padding:6px 8px;">Bitcoin</td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
+        <td style="padding:6px 8px;">
+          <div class="tags-inline"><span class="tag asset">USD</span>
+                    <span class="tag target">Absolute Return</span>
+                    <span class="tag product">Fund</span>
+                    <span class="tag liquidity">Weekly</span></div>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
+        <td style="padding:6px 8px;"><div>The C22 Strategy offers an interesting opportunity for investors looking for exposure to the crypto space, with a focus on low correlation to traditional assets and the crypto market.<br><br>The C22 Strategy is a Machine Learning-driven crypto mid-frequency trend-following strategy that utilizes a systematic approach to long and short futures (perpetuals) trading in the crypto space.</div></td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Links</th>
+        <td style="padding:6px 8px;"><a href="https://ifm.li/FundStammdaten.aspx?nid=8207&groupnr=8207&lang=de&id=1415175" target="_blank" rel="noopener noreferrer">USD-Tranche</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div></div>
+                    <a href="mailto:sales@z22.ch?subject=C22 Strategy - Information Request" class="btn-secondary">Get Info</a>
+                </div>
+            </div>
+
+            <!-- Z22 MSTR Income -->
+            <div class="card" data-strategy-id="mstr-income" data-longdesc="A fully systematic options-based approach targeting the elevated volatility in MSTR. Our algorithm scans the entire options market in real time, selecting strategies such as covered calls and put writing to maximize premium collection. The goal isn’t to beat MSTR’s price performance, but to consistently capture its high implied volatility premium for steady returns across market conditions." data-category="Crypto Strategies">
+                <div class="card-category">Crypto Strategies</div>
+                <h3>Z22 MSTR Income</h3>
+                <p>A fully systematic options strategy designed to consistently capture MSTR's elevated volatility premium.</p>
+                <div class="card-tags">
+                    <span class="tag asset">MSTR</span>
+                    <span class="tag target">Absolute Return</span>
+                    <span class="tag product">AMC</span>
+                    <span class="tag liquidity">Daily</span>
+                </div>
+                <div class="card-buttons">
+                    <button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
+<div id="desc-mstr-income" class="hidden longdesc"><div class="learnmore-wrap">
+  <table role="table" aria-label="Z22 MSTR Income details" style="width:100%; border-collapse:collapse; font-size:0.95em;">
+    <tbody>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
+        <td style="padding:6px 8px;">Multi-Asset / Multi-Strategy</td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
+        <td style="padding:6px 8px;">
+          <div class="tags-inline"><span class="tag asset">MSTR</span>
+                    <span class="tag target">Absolute Return</span>
+                    <span class="tag product">AMC</span>
+                    <span class="tag liquidity">Daily</span></div>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
+        <td style="padding:6px 8px;"><div>A fully systematic options-based approach targeting the elevated volatility in MSTR. Our algorithm scans the entire options market in real time, selecting strategies such as covered calls and put writing to maximize premium collection. The goal isn’t to beat MSTR’s price performance, but to consistently capture its high implied volatility premium for steady returns across market conditions.</div></td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Links</th>
+        <td style="padding:6px 8px;"><a href="https://structuredproducts-ch.leonteq.com/isin/CH1292091928" target="_blank" rel="noopener noreferrer">USD</a> | <a href="https://structuredproducts-ch.leonteq.com/isin/CH1292091977" target="_blank" rel="noopener noreferrer">CHF</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div></div>
+                    <a href="mailto:sales@z22.ch?subject=Z22 MSTR Income - Information Request" class="btn-secondary">Get Info</a>
+                </div>
+            </div>
+
+            <!-- Z22 Dynamic Resilience -->
+            <div class="card" data-strategy-id="dynamic-resilience" data-longdesc="More information about Z22 Dynamic Resilience." data-category="Multi-Asset / Multi-Strategy">
+                <div class="card-category">Multi-Asset / Multi-Strategy</div>
+                <h3>Z22 Dynamic Resilience</h3>
+                <p>Systematic long only all weather ETF portfolio.</p>
+                <div class="card-tags">
+                    <span class="tag asset">ETFs</span>
+                    <span class="tag target">Absolute Return</span>
+                    <span class="tag product">AMC</span>
+                    <span class="tag liquidity">Daily</span>
+                </div>
+                <div class="card-buttons">
+                    <button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
+<div id="desc-dynamic-resilience" class="hidden longdesc"><div class="learnmore-wrap">
+  <table role="table" aria-label="Z22 Dynamic Resilience details" style="width:100%; border-collapse:collapse; font-size:0.95em;">
+    <tbody>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
+        <td style="padding:6px 8px;">Multi-Asset / Multi-Strategy</td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
+        <td style="padding:6px 8px;">
+          <div class="tags-inline"><span class="tag asset">ETFs</span>
+                    <span class="tag target">Absolute Return</span>
+                    <span class="tag product">AMC</span>
+                    <span class="tag liquidity">Daily</span></div>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
+        <td style="padding:6px 8px;"><div><p>Z22 Dynamic Resilience offers a stable investment strategy with a systematic tactical overlay that seeks to generate additional returns.</p>
+
+<p>Z22 Dynamic Resilience is designed for investors seeking a stable, long-only ETF allocation with an intelligent, systematic tactical overlay. The program is implemented via cost-efficient ETFs across multiple asset classes, including equities, commodities, fixed income, gold and bitcoin, to provide exposure to all the traditional asset class.</p>
+
+<p>The program’s approach involves defining a strategic base allocation that performs well in all market cycles, combined with a systematic tactical overlay that aims to create extra returns above the static baseline portfolio. This dynamic ETF strategy seeks to take advantage of market inefficiencies and trends by adjusting the portfolio’s allocation based on quantitative signals.</p></div></td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Links</th>
+        <td style="padding:6px 8px;"><a href="https://structuredproducts-ch.leonteq.com/isin/CH1447738225" target="_blank" rel="noopener noreferrer">Z22 Dynamic Resilience</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div></div>
+                    <a href="mailto:sales@z22.ch?subject=Z22 Dynamic Resilience - Information Request" class="btn-secondary">Get Info</a>
+                </div>
+            </div>
+
+            <!-- Z22 Iron Balls -->
+            <div class="card" data-strategy-id="iron-balls" data-longdesc="Z22 Iron Balls is a high-conviction Bitcoin strategy that keeps a permanent BTC core while applying systematic overlays to actively harness volatility and compound purchasing power across market cycles. The approach blends macro, on-chain, and sentiment analysis to determine the optimal mix of overlays at any given time. These include systematic trend-following to capture directional momentum in BTC and select liquid cryptocurrencies, systematic option selling to monetize elevated implied volatility, cross-exchange arbitrage to exploit pricing inefficiencies in perpetual futures, and volatility premium harvesting to accumulate BTC during distressed markets. By dynamically combining these strategies around a constant Bitcoin base, Z22 Iron Balls seeks to turn Bitcoin’s volatility from a challenge into a long-term growth engine." data-category="Bitcoin">
+                <div class="card-category">Bitcoin</div>
+                <h3>Z22 Iron Balls</h3>
+                <p>A high conviction Bitcoin strategy with systematic overlays.</p>
+                <div class="card-tags">
+                    <span class="tag asset">BTC</span>
+                    <span class="tag target">BTC Yield</span>
+                    <span class="tag product">Fund</span>
+                    <span class="tag liquidity">Monthly</span>
+                </div>
+                <div class="card-buttons">
+                    <button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
+<div id="desc-iron-balls" class="hidden longdesc"><div class="learnmore-wrap">
+  <table role="table" aria-label="Z22 Iron Balls details" style="width:100%; border-collapse:collapse; font-size:0.95em;">
+    <tbody>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
+        <td style="padding:6px 8px;">Bitcoin</td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
+        <td style="padding:6px 8px;">
+          <div class="tags-inline"><span class="tag asset">BTC</span>
+                    <span class="tag target">BTC Yield</span>
+                    <span class="tag product">Fund</span>
+                    <span class="tag liquidity">Monthly</span></div>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
+        <td style="padding:6px 8px;"><div>Z22 Iron Balls is a high-conviction Bitcoin strategy that keeps a permanent BTC core while applying systematic overlays to actively harness volatility and compound purchasing power across market cycles. The approach blends macro, on-chain, and sentiment analysis to determine the optimal mix of overlays at any given time. These include systematic trend-following to capture directional momentum in BTC and select liquid cryptocurrencies, systematic option selling to monetize elevated implied volatility, cross-exchange arbitrage to exploit pricing inefficiencies in perpetual futures, and volatility premium harvesting to accumulate BTC during distressed markets. By dynamically combining these strategies around a constant Bitcoin base, Z22 Iron Balls seeks to turn Bitcoin’s volatility from a challenge into a long-term growth engine.</div></td>
+      </tr>
+    </tbody>
+  </table>
+</div></div>
+                    <a href="mailto:sales@z22.ch?subject=Z22 Iron Balls - Information Request" class="btn-secondary">Get Info</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section">
+        <h2>Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <h4>Philipp Baumann</h4>
+                <div class="role">Founder</div>
+                <div class="education">Master of Arts in Business Management University of St. Gallen (HSG)</div>
+                <div class="linkedin">
+                    <a href="https://www.linkedin.com/in/philipp-baumann-715a9691/" target="_blank">
+                        <img src="linkedin_logo.png" class="linkedin-icon" alt="LinkedIn" />
+                    </a>
+                </div>
+            </div>
+            <div class="team-member">
+                <h4>Armin Herbsthofer</h4>
+                <div class="role">Founder</div>
+                <div class="education">Master of Arts in Physics from Federal Institute of Technology Zurich (ETH)</div>
+                <div class="linkedin">
+                    <a href="https://www.linkedin.com/in/armin-herbsthofer/" target="_blank">
+                        <img src="linkedin_logo.png" class="linkedin-icon" alt="LinkedIn" />
+                    </a>
+                </div>
+            </div>
+            <div class="team-member">
+                <h4>Prof. Dr. Josef Teichmann</h4>
+                <div class="role">Board of Directors</div>
+                <div class="education">Professor for Financial Mathematics at Federal Institute of Technology Zurich (ETH)</div>
+            </div>
+            <div class="team-member">
+                <h4>Thomas Hochstrasser</h4>
+                <div class="role">Board of Directors</div>
+                <div class="education">Partner at Niederer, Kraft & Frey</div>
+                <div class="linkedin">
+                    <a href="https://www.linkedin.com/in/thomas-hochstrasser-71589a53/" target="_blank">
+                        <img src="linkedin_logo.png" class="linkedin-icon" alt="LinkedIn" />
+                    </a>
+                </div>
+            </div>
+            <div class="team-member">
+                <h4>Thomas Hirsiger</h4>
+                <div class="role">Board of Directors</div>
+                <div class="education">Entrepreneur and owner of Finiens Wealth Management</div>
+                <div class="linkedin">
+                    <a href="https://www.linkedin.com/in/hirsiger-thomas-a1520b83/" target="_blank">
+                        <img src="linkedin_logo.png" class="linkedin-icon" alt="LinkedIn" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2>Get In Touch</h2>
+        <div style="text-align: center;">
+            <p style="margin-bottom: 2rem;">Click ‘Contact Us’ to send your details or join our newsletter - we’ll reply shortly.</p>
+            <a href="mailto:hello@z22.ch?subject=Contact Request" class="cta-button">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h4>Z22 Technologies AG</h4>
+                <p>Alte Steinhauserstrasse 19</p>
+                <p>CH-6330 Cham</p>
+                <p>Switzerland</p>
+            </div>
+            
+            <div class="footer-right">
+                <h4>Legal</h4>
+                <p><a href="#" onclick="openCardModal(this)">Imprint</a></p>
+                <p><a href="#" onclick="openCardModal(this)">Data Security</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Z22 Technologies AG. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // --- Utilities
+  const norm = (s='') => s.toLowerCase().replace(/[^a-z0-9]+/g,' ').trim().replace(/\s+/g,' ');
+
+  // --- Filtering
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('#strategies-grid .card');
+
+  function applyFilter(filter) {
+    const f = norm(filter || 'all');
+    cards.forEach(card => {
+      const cat = norm(card.dataset.category || '');
+      const show = (f === 'all') || (cat === f);
+      card.classList.toggle('hidden', !show);
+    });
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilter(btn.dataset.filter);
+    });
+  });
+
+  const initial = document.querySelector('.filter-btn.active');
+  applyFilter(initial ? initial.dataset.filter : 'all');
+
+  // --- Learn More (DOM-only)
+  const grid = document.getElementById('strategies-grid');
+  if (grid) {
+    grid.addEventListener('click', (e) => {
+      const btn = e.target.closest('.learn-more');
+      if (!btn) return;
+      const card = btn.closest('.card');
+      const titleEl = card ? card.querySelector('h3') : null;
+      const title = titleEl ? titleEl.textContent.trim() : 'Details';
+      const descEl = card ? card.querySelector('.longdesc') : null;
+      const longHTML = descEl ? descEl.innerHTML : 'More information will be available soon.';
+      const modal = document.getElementById('modal');
+      const bodyEl = document.getElementById('modal-body');
+      if (modal && bodyEl) {
+        bodyEl.innerHTML = '<h3 style="margin-bottom:1rem;">' + title + '</h3><div>' + longHTML + '</div>';
+        modal.style.display = 'block';
+      }
+    });
+  }
+
+  // --- Modal close
+  window.closeModal = function () {
+    const modal = document.getElementById('modal');
+    if (modal) modal.style.display = 'none';
+  };
+  const modalEl = document.getElementById('modal');
+  if (modalEl) {
+    modalEl.addEventListener('click', (e) => {
+      if (e.target === modalEl) window.closeModal();
+    });
+  }
+});
+</script>
+
+
+<script>
+window.openCardModal = function(btn) {
+  try {
+    var card = btn.closest('.card');
+    var titleEl = card ? card.querySelector('h3') : null;
+    var title = titleEl ? titleEl.textContent.trim() : 'Details';
+    var descEl = card ? card.querySelector('.longdesc') : null;
+    var longHTML = descEl ? descEl.innerHTML : 'More information will be available soon.';
+    // Injected: Only alter the Data Security tile content; change nothing else.
+    try {
+      var linkText = (btn && btn.textContent) ? btn.textContent.trim().toLowerCase() : '';
+      var titleLower = (title || '').toLowerCase();
+      if (linkText === 'data security' || titleLower === 'data security') {
+        title = '<br><b>Data Security</b>';
+        longHTML = `<div>
+  <p>This website was created and published by Z22 Technologies AG, based in Switzerland, Alte Steinhauserstrasse 19, CH-6330 Cham, registered in the Commercial Register of the Canton of Zug under UID number CHE-485.152.086.</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <p>Accordingly, we are responsible for collecting, processing, and using your personal data and for lawful data processing. These privacy provisions form an integral part of the General Terms and Conditions (GTC), which you can find here. We are committed to handling your personal data responsibly. Consequently, we consider it a matter of course to comply with the legal requirements of the Swiss Federal Act on Data Protection (FADP), the Ordinance to the Federal Act on Data Protection (OFADP), the Telecommunications Act (TCA), and other provisions of Swiss data protection law. We also comply with other applicable data protection laws (e.g., the EU General Data Protection Regulation, GDPR).</p>
+
+  <p>Below, we would like to inform you about how we handle your personal data. Please note that the information below may be reviewed and amended from time to time. We therefore recommend that you regularly consult this Privacy Policy. While visiting our website, your personal data will be collected and used by us to the following extent and for the following purposes: scope and purpose of the collection, processing, and use of your personal data.</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>When visiting our website</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>When you visit our website, our servers temporarily store each access in a log file. The following data is collected and stored by us:</p>
+  <ul style="margin-left:1.25em; padding-left:1.25em;">
+    <li>IP address of the requesting computer</li>
+    <li>Date and time of access</li>
+    <li>Name and URL of the retrieved data</li>
+    <li>Website from which our domain was accessed</li>
+    <li>Operating system of your computer and the browser you use</li>
+    <li>Country from which our website is accessed</li>
+    <li>Name of your internet service provider</li>
+  </ul>
+  <p>The collection and processing of this data is generally carried out in anonymized form without personal reference, for the purpose of enabling the use of the website (connection setup), ensuring long-term system security and stability, optimizing our website, and for internal statistical purposes. The aforementioned information is not linked or stored together with personal data. Only in the event of an attack on our website’s network infrastructure or suspicion of other unauthorized or abusive website use will the IP address be evaluated for clarification and defense purposes and, if necessary, used to identify the relevant users in the course of civil or criminal proceedings.</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Disclosure of your personal data to third parties</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>We only disclose your personal data if you have expressly consented, if there is a legal obligation to do so, or if it is necessary to enforce our rights, in particular to enforce claims arising from the contractual relationship. Furthermore, we share your data with third parties to the extent necessary for the use of the website and contract processing, in particular for processing your orders, handling your purchases, delivering your ordered products and processing payments, providing the services you request, as well as analyzing your user behavior. The use of data disclosed to third parties is strictly limited to the stated purposes. Various third-party service providers are explicitly mentioned in this Privacy Policy (e.g., in the “Tracking Tools” and “Social Plugins” sections). Another service provider to whom personal data is disclosed or who may have access to your personal data is our web host, wix.com.</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Transfer of your personal data abroad</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>We are entitled to transfer your data to third-party companies abroad if this is necessary in connection with the processing of your inquiries, the provision of services, or marketing campaigns. These third parties are required to protect your privacy to the same extent as we do. If the level of data protection in a country is deemed inadequate by Swiss standards or under the EU General Data Protection Regulation, we ensure by means of a contract that your personal data is always protected in accordance with Swiss guidelines and/or the EU GDPR. Some of the third-party service providers mentioned in this Privacy Policy are based in the USA (see “Tracking Tools” and “Social Plugins”). Further details on data transfers to the USA can be found under “Tracking.”</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Your right to access, deletion, and correction</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>You may request information about your personal data stored by us at any time. Requests for information must be submitted in writing and accompanied by proof of identity. You also have the right to request the deletion or correction of your data stored by us at any time. You can do this by submitting a corresponding request to us (see “Contact” section). Please note that we reserve the right to request proof of identity and that deletion of your data may result in your inability to use our services, in whole or in part. You may withdraw consent to certain data processing activities at any time with effect for the future. Please note that certain data must be retained for a legally specified period. Such data will remain stored with us until the end of these retention periods. We restrict such data in our system and use it solely to comply with legal requirements.</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Data security</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>We employ appropriate technical and organizational security measures that we deem suitable to protect your stored data against manipulation, partial or complete loss, and unauthorized access by third parties. Our security measures are continuously adapted in line with technological developments. If you register with us as a customer, access to your customer account is only possible after entering your personal password. You should always keep your login information confidential and close the browser window after ending communication with us, especially if you share your computer with others. We also take internal corporate data protection very seriously. Our employees and the service providers we engage are obliged to maintain confidentiality and comply with data protection regulations. Furthermore, access to personal data is granted only to the extent necessary.</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Cookies</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>Cookies help make your visit to our website easier, more pleasant, and more meaningful. Cookies are information files that your web browser automatically stores on your computer’s hard drive when you visit our website. Cookies neither damage your computer’s hard drive nor transmit your personal data to us. We use cookies, for example, to recognize you as a registered user without requiring you to log in every time. In this case, “use” does not mean that we receive new personal data about you as an online visitor. Most internet browsers automatically accept cookies. However, you can configure your browser to prevent cookies from being stored on your computer or to display a warning message whenever a new cookie is received. Further information can be found in your browser’s settings. Please note that disabling cookies may result in your inability to use all features of our website.</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Tracking Tools</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>For the purpose of needs-based design and continuous optimization of our website, we use the Google Analytics web analytics service. In this context, pseudonymized usage profiles are created and cookies are used. The information generated by the cookie about your use of this website, such as:</p>
+  <ul style="margin-left:1.25em; padding-left:1.25em;">
+    <li>Browser type/version</li>
+    <li>Operating system used</li>
+    <li>Referrer URL (the previously visited page)</li>
+    <li>Hostname of the accessing computer (IP address)</li>
+    <li>Time of the server request</li>
+    <li>Device</li>
+  </ul>
+  <p>is transmitted to and stored on servers of Google Inc., a subsidiary of Alphabet Inc., in the USA. IP anonymization (“anonymizeIP”) is activated on this website, meaning the IP address is shortened before transmission within EU member states, EFTA states, or Switzerland. The anonymized IP address transmitted by your browser as part of Google Analytics is not merged with other Google data. Only in exceptional cases is the full IP address transmitted to a Google server in the USA and shortened there. In such cases, we ensure by contractual guarantees that Google Inc. complies with an adequate level of data protection. The information is used to evaluate website usage, compile reports on website activity, and provide further services related to website and internet use for market research and website customization. The information may also be transferred to third parties if required by law or if third parties process this data on our behalf. According to Google Inc., under no circumstances will the IP address be associated with other user-related data.</p>
+
+  <p>Users can prevent the collection of data generated by the cookie and related to their use of the website (including their IP address) by Google, as well as the processing of this data by Google, by downloading and installing the browser plug-in available at:
+  <a href="http://tools.google.com/dlpage/gaoptout?hl=de" target="_blank" rel="noopener noreferrer">http://tools.google.com/dlpage/gaoptout?hl=de</a>.
+  Alternatively, you can click this link to prevent future tracking by Google Analytics on this website. This will place an opt-out cookie on your device. If you delete cookies (see “Cookies”), you must click the link again.</p>
+
+  <p>U.S. authorities may conduct surveillance measures under U.S. legislation, allowing the general storage of all data transferred from the EU to the USA without distinction, limitation, or exception based on the pursued objective and without objective criteria limiting access to personal data to specific, strictly necessary purposes that would justify access to such data.</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Re-Targeting</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>We use so-called re-targeting technologies on our website. Your user behavior on our website is analyzed to subsequently offer you personalized advertising on partner websites. Your user behavior is recorded under a pseudonym. Most re-targeting technologies use cookies (see “Cookies”). You can prevent re-targeting at any time by rejecting or disabling the relevant cookies in your web browser’s menu bar (see “Cookies”).</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Google Tag Manager</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>We also use Google Tag Manager to manage cookies and pixels for tracking and other tools. The Tag Manager itself is a cookie-less domain and does not collect personal data. Instead, it triggers other tags that may collect data. If deactivation has been carried out at the domain or cookie level, it remains effective for all tracking tags implemented with Google Tag Manager.</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Links to our social media profiles</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>Our website contains links to our social media profiles on the following networks:
+  LinkedIn Ireland Unlimited Company, Wilton Place, Dublin 2, Ireland.
+  When you click the respective social network icons, you will be automatically redirected to our profile on the relevant network. To use the functions of the network, you may need to log into your user account on that network. When you access a link to one of our social media profiles, a direct connection is established between your browser and the server of the respective social network. The network is thus informed that you have visited our website with your IP address and clicked the link. If you access a link while logged into your account on the relevant network, the contents of our site may be linked to your profile, meaning that the network can directly associate your visit to our website with your account. If you wish to prevent this, you should log out before clicking the respective links. An association will in any case occur if you log in to the network after clicking the link.</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Contact</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>If you have questions about data protection on our website, wish to request information, or want your data deleted, please contact us:</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+  <p>Z22 Technologies AG<br>Data Privacy<br>Alte Steinhauserstrasse 19<br>CH-6330 Cham</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Consents</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>You grant us the following consents, which you may withdraw at any time with effect for the future:</p>
+  <ul style="margin-left:1.25em; padding-left:1.25em;">
+    <li>I consent to the use of my telephone number for after-sales services and for contacting me with questions regarding my order.</li>
+    <li>I consent to the use of cookies to collect, store, and use usage data for re-targeting purposes. The website uses Google Tag Manager, Google DoubleClick, and Lucky Orange, which collect usage data via cookies.</li>
+    <li>I consent to my personal data being stored and processed in the central CRM system. In particular, I agree that my data may be analyzed and evaluated for the purposes of personalized advertising.</li>
+  </ul>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <p>Cham, 01 January 2025</p>
+</div>`;
+      }
+
+if (linkText === 'imprint' || titleLower === 'imprint') {
+  title = '<br><b>Imprint</b>';
+  longHTML = `<div>
+  <h3>Contact</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>Z22 Technologies AG<br>Alte Steinhauserstrasse 19<br>CH-6330 Cham</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Commercial Register Entry</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>Commercial Register Number: CH02030470137<br>UID: CHE-485.152.086</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Authorized Representatives</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>Philipp Baumann, Armin Herbsthofer</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>FINMA Authorization</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>Z22 Technologies holds a FINMA authorization as an Asset Manager of Collective Investment Schemes.<br>
+  List of authorized fund management companies, asset managers of collective investment schemes, and representatives of foreign collective investment schemes (link).</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Ombudsman</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>Z22 Technologies is affiliated with the following ombudsman: Ombudsstelle für Finanzdienstleister (OFD).</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Copyrights</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>All copyrights and other rights to content, images, photos, or other files on the website are the exclusive property of Z22 Technologies or the specifically named rights holders. Any reproduction of elements requires the prior written consent of the copyright holder.</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Disclaimer of Liability</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>The author assumes no responsibility for the correctness, accuracy, timeliness, reliability, or completeness of the information provided. Liability claims against the author for material or immaterial damage resulting from access to, use or non-use of the published information, from misuse of the connection, or from technical malfunctions are excluded. All offers are non-binding. The author expressly reserves the right to change, supplement, delete, or temporarily or permanently discontinue publication of parts of the pages or the entire offering without prior notice.</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Liability for Links</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>References and links to third-party websites lie outside our area of responsibility. Any responsibility for such websites is rejected. Access to and use of such websites is at the user’s own risk.</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <h3>Cookies</h3>
+  <p style="margin:0 0 1em 0;"></p>
+  <p>This website uses cookies. Cookies are small text files that are permanently or temporarily stored on your computer when you visit this website. The purpose of cookies is, in particular, to analyze the use of this website for statistical evaluation and continuous improvement. You can deactivate cookies in full or in part at any time in your browser settings. If cookies are deactivated, you may no longer be able to use all functions of this website.</p>
+  <p style="margin:0 0 1em 0;"></p>
+  <p style="margin:0 0 1em 0;"></p>
+
+
+  <p>Cham, 01 January 2025</p>
+</div>`;
+}
+
+
+    } catch (ignore) {}
+    var modal = document.getElementById('modal');
+    var bodyEl = document.getElementById('modal-body');
+    if (modal && bodyEl) {
+      bodyEl.innerHTML = '<h3 style="margin-bottom:1rem;">' + title + '</h3><div>' + longHTML + '</div>';
+      modal.style.display = 'block';
+    }
+  } catch (e) {
+    console.error('openCardModal error:', e);
+  }
+};
+</script>
+
+
+<script>
+(function(){
+  const legalContent = {
+    imprint: `
+      <h3 style="margin-bottom:0.75rem;">Imprint</h3>
+
+      <h4>Kontakt</h4>
+      <p>Z22 Technologies AG<br>
+      Alte Steinhauserstrasse 19<br>
+      CH-6330 Cham</p>
+
+      <h4>Handelsregistereintrag</h4>
+      <p>Handelsregister-Nummer: CH02030470137<br>
+      UID: CHE-485.152.086</p>
+
+      <h4>Vertretungsberechtigte Personen</h4>
+      <p>Philipp Baumann, Armin Herbsthofer</p>
+
+      <h4>FINMA Bewilligung</h4>
+      <p>Z22 Technologies hat eine FINMA Bewilligung als Verwalter für Kollektivvermögen. Liste der bewilligten Fondsleitungen, Verwalter von Kollektivvermögen und Vertreter von ausländischen kollektiven Kapitalanlagen (Link)</p>
+
+      <h4>Ombudsstelle</h4>
+      <p>Z22 Technologies ist bei folgender Ombudsstelle angeschlossen: Ombudsstelle für Finanzdienstleister (OFD)</p>
+
+      <h4>Urheberrechte</h4>
+      <p>Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf der Website gehören ausschliesslich der Firma Z22 Technologies oder den speziell genannten Rechtsinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsträger im Voraus einzuholen.</p>
+
+      <h4>Haftungsausschluss</h4>
+      <p>Der Autor übernimmt keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen. Haftungsansprüche gegen den Autor wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen. Alle Angebote sind unverbindlich. Der Autor behält es sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.</p>
+
+      <h4>Haftung für Links</h4>
+      <p>Verweise und Links auf Webseiten Dritter liegen ausserhalb unseres Verantwortungsbereichs. Es wird jegliche Verantwortung für solche Webseiten abgelehnt. Der Zugriff und die Nutzung solcher Webseiten erfolgen auf eigene Gefahr des Nutzers oder der Nutzerin.</p>
+
+      <h4>Cookies</h4>
+      <p>Diese Website verwendet Cookies. Cookies sind kleine Textdateien, die beim Besuch dieser Website in Ihrem Computer dauerhaft oder temporär gespeichert werden. Zweck der Cookies ist insbesondere die Analyse der Nutzung dieser Website zur statistischen Auswertung sowie für kontinuierliche Verbesserungen. In Ihrem Browser können Sie Cookies in den Einstellungen jederzeit ganz oder teilweise deaktivieren. Bei deaktivierten Cookies stehen Ihnen allenfalls nicht mehr alle Funktionen dieser Website zur Verfügung.</p>
+
+      <p style="margin-top:0.75rem; color:#666;">Stand: Cham, 01.01.2025</p>
+
+      <hr style="margin:1.25rem 0;">
+
+      <h4>English translation</h4>
+      <h5>Contact</h5>
+      <p>Z22 Technologies AG<br>
+      Alte Steinhauserstrasse 19<br>
+      CH-6330 Cham</p>
+
+      <h5>Commercial Register Entry</h5>
+      <p>Commercial Register Number: CH02030470137<br>
+      UID: CHE-485.152.086</p>
+
+      <h5>Authorized Representatives</h5>
+      <p>Philipp Baumann, Armin Herbsthofer</p>
+
+      <h5>FINMA Authorization</h5>
+      <p>Z22 Technologies holds a FINMA authorization as a manager of collective assets. List of authorized fund management companies, managers of collective assets, and representatives of foreign collective investment schemes (link).</p>
+
+      <h5>Ombudsman</h5>
+      <p>Z22 Technologies is affiliated with the following ombuds office: Ombudsstelle für Finanzdienstleister (OFD).</p>
+
+      <h5>Copyright</h5>
+      <p>All copyrights and other rights to content, images, photos or other files on the website belong exclusively to Z22 Technologies or the specifically named rights holders. Written permission from the copyright holders must be obtained in advance for the reproduction of any elements.</p>
+
+      <h5>Disclaimer</h5>
+      <p>No guarantee is given for the correctness, accuracy, timeliness, reliability or completeness of the information. Liability claims against the author for material or non-material damage arising from access to, or use or non-use of, the published information, misuse of the connection, or technical faults are excluded. All offers are non-binding. The author expressly reserves the right to change, supplement, delete parts of the pages or the entire offering without special notice, or to cease publication temporarily or permanently.</p>
+
+      <h5>Liability for Links</h5>
+      <p>References and links to third-party websites are outside our area of responsibility. Any responsibility for such websites is rejected. Access to and use of such websites is at the user’s own risk.</p>
+
+      <h5>Cookies</h5>
+      <p>This website uses cookies. Cookies are small text files stored on your computer permanently or temporarily when you visit this website. The purpose of cookies is, in particular, the analysis of the use of this website for statistical evaluation and continuous improvements. You can deactivate cookies in your browser settings at any time, in whole or in part. If cookies are deactivated, not all functions of this website may be available.</p>
+
+      <p style="margin-top:0.75rem; color:#666;">Last updated: Cham, 01.01.2025</p>
+    `,
+    privacy: `
+      <h3 style="margin-bottom:0.75rem;">Data Security</h3>
+
+      <p>Diese Website wurde erstellt und veröffentlicht von der Z22 Technologies AG mit Sitz in der Schweiz, Alte Steinhauserstrasse 19, CH-6330 Cham, eingetragen im Handelsregister des Kantons Zug unter der UID-Nummer CHE-485.152.086.</p>
+
+      <p>Demgemäss sind wir verantwortlich für die Erhebung, Verarbeitung und Nutzung Deiner Personendaten und gesetzeskonformen Datenverarbeitung. Diese Datenschutzbestimmungen gelten als integrierender Bestandteil der Allgemeinen Geschäftsbedingungen (AGB), welche Du hier findest. Wir verpflichten uns zu einem verantwortungsvollen Umgang mit Deinen Personendaten. Folglich erachten wir es als selbstverständlich, den gesetzlichen Anforderungen des schweizerischen Bundesgesetzes über den Datenschutz (DSG), der Verordnung zum Bundesgesetz über den Datenschutz (VDSG), des Telekommunikationsgesetzes (FMG) und anderen Bestimmungen des schweizerischen Datenschutzrechts zu genügen. Zudem halten wir auch andere anwendbare Datenschutzrechtsordnungen ein (z.B. die EU-Datenschutzgrundverordnung).</p>
+
+      <p>Im Folgenden möchten wir Dich darüber informieren, wie wir Deine Personendaten behandeln. Bitte nimm zur Kenntnis, dass die nachfolgend enthaltenen Informationen von Zeit zu Zeit überprüft und geändert werden können. Wir empfehlen Dir daher, diese Datenschutzerklärung regelmässig einzusehen. Während Du unsere Website besuchst, werden Deine Personendaten in folgendem Umfang und für folgende Zwecke von uns erhoben und verwendet: Umfang und Zweck der Erhebung, Bearbeitung und Verwendung Deiner personenbezogenen Daten.</p>
+
+      <h4>Beim Besuch unserer Website</h4>
+      <p>Wenn Du unsere Website besuchst, speichern unsere Server vorübergehend jeden Zugriff in einer Protokolldatei. Folgende Daten werden dabei von uns gespeichert:</p>
+      <ul>
+        <li>IP-Adresse des anfragenden Rechners</li>
+        <li>Datum und Zeitpunkt des Zugriffs</li>
+        <li>Name und URL der abgerufenen Daten</li>
+        <li>Website, von der aus auf unsere Domain zugegriffen wurde</li>
+        <li>Betriebssystem Deines Rechners und der von Dir verwendete Browser</li>
+        <li>Land, von dem aus der Zugriff auf unsere Website erfolgt</li>
+        <li>Name Deines Internetzugangsproviders</li>
+      </ul>
+      <p>Die Erhebung und Verarbeitung dieser Daten erfolgt im Allgemeinen anonymisiert ohne Personenbezug zu dem Zweck, die Nutzung der Website zu ermöglichen (Verbindungsaufbau), die Systemsicherheit und -stabilität dauerhaft zu gewährleisten und das Internetangebot zu optimieren sowie zu internen statistischen Zwecken. Die vorangehend erwähnten Informationen werden nicht mit Personendaten verknüpft oder mit solchen gespeichert. Nur im Falle eines Angriffes auf die Netzinfrastruktur unserer Website oder bei einem Verdacht auf eine andere unerlaubte oder missbräuchliche Website-Nutzung wird die IP-Adresse zur Aufklärung und Abwehr ausgewertet und gegebenenfalls im Rahmen eines Strafverfahrens zur Identifikation und zum zivil- und strafrechtlichen Vorgehen gegen die betreffenden Nutzer verwendet.</p>
+
+      <h4>Weitergabe Deiner personenbezogenen Daten an Dritte</h4>
+      <p>Wir geben Deine Personendaten nur weiter, wenn Du ausdrücklich eingewilligt hast, hierfür eine gesetzliche Verpflichtung besteht oder dies zur Durchsetzung unserer Rechte, insbesondere zur Durchsetzung von Ansprüchen aus dem Vertragsverhältnis, erforderlich ist. Darüber hinaus geben wir Deine Daten an Dritte weiter, soweit dies im Rahmen der Nutzung der Website und der Vertragsabwicklung, namentlich der Verarbeitung Deiner Bestellungen, der Abwicklung Deiner Einkäufe, der Auslieferung Deiner bestellten Produkte und deren Bezahlung, für die Bereitstellung der von Dir gewünschten Dienstleistungen sowie der Analyse Deines Nutzerverhaltens erforderlich ist. Die Nutzung der hierzu weitergebenen Daten durch die Dritten ist streng auf die genannten Zwecke beschränkt. Verschiedene Drittdienstleister werden in dieser Datenschutzerklärung explizit erwähnt (z.B. in den Abschnitten „Tracking-Tools“ und „Social Plugins“). Ein weiterer Dienstleister, an den Personendaten weitergegeben werden bzw. der Zugriff auf Personendaten von Dir hat oder haben kann, ist unser Webhoster wix.com.</p>
+
+      <h4>Übermittlung Deiner personenbezogenen Daten ins Ausland</h4>
+      <p>Wir sind berechtigt, Deine Daten an Drittunternehmen im Ausland weiterzuleiten, sofern dies im Zusammenhang mit der Bearbeitung Deiner Anfragen, der Erbringung von Dienstleistungen und Marketingkampagnen erforderlich ist. Diese Drittunternehmen sind dazu verpflichtet, Deine Privatsphäre in gleichem Umfang zu pflegen wie wir selbst. Wird das Datenschutzniveau in einem Land als für Schweizer Verhältnisse bzw. im Sinne der EU-Datenschutzgrundverordnung unangemessen erachtet, stellen wir mithilfe eines Vertrages sicher, dass Deine personenbezogenen Daten jederzeit nach Schweizer Richtlinien bzw. der EU-Datenschutzgrundverordnung geschützt werden. Einzelne der in dieser Datenschutzerklärung genannten Drittdienstleister haben ihren Sitz in den USA (siehe unter „Tracking-Tools“ und „Social Plugins“). Weitere Ausführungen zu Datenübertragungen in die USA findest Du unter „Tracking“.</p>
+
+      <h4>Dein Recht auf Auskunft, Löschung und Korrektur</h4>
+      <p>Du kannst jederzeit um Auskunft über Deine von uns gespeicherten Personendaten bitten. Auskunftsersuchen müssen schriftlich mit Identitätsnachweis eingereicht werden. Ebenso steht es Dir zu, jederzeit die Löschung oder Berichtigung Deiner bei uns gespeicherten Daten zu verlangen. Du kannst dies tun, indem Du uns einen entsprechenden Antrag stellst (siehe unter „Kontakt“). Wir weisen Dich darauf hin, dass wir uns die Forderung eines Nachweises der Identität vorbehalten und dass im Falle der Löschung Deiner Daten eine Inanspruchnahme unserer Dienste nicht oder nicht mehr in vollem Umfang möglich ist. Einwilligungen in bestimmte Datenverarbeitungen kannst Du jederzeit mit Wirkung für die Zukunft widerrufen. Bitte nimm zur Kenntnis, dass laut Gesetz bestimmte Daten über einen bestimmten Zeitraum aufbewahrt werden müssen. Solche Daten müssen daher bis zum Ablauf dieser Fristen bei uns gespeichert bleiben. Wir sperren diese Daten in unserem System und verwenden sie lediglich zur Erfüllung gesetzlicher Auflagen.</p>
+
+      <h4>Datensicherheit</h4>
+      <p>Wir bedienen uns angemessener technischer und organisatorischer Sicherheitsmassnahmen, die uns angebracht erscheinen, um Deine von uns gespeicherten Daten vor Manipulation, dem teilweisen oder vollständigen Verlust und dem unbefugten Zugriff Dritter zu schützen. Unsere Sicherheitsmassnahmen werden entsprechend der technologischen Entwicklung fortlaufend angepasst. Wenn Du Dich bei uns als Kunde registrierst, ist der Zugang zu Deinem Kundenkonto jeweils nur nach Eingabe Deines persönlichen Passwortes möglich. Du solltest Deine Zugangsdaten stets vertraulich behandeln und das Browserfenster schliessen, wenn Du die Kommunikation mit uns beendet hast, insbesondere wenn Du den Computer gemeinsam mit anderen nutzt. Auch den eigenen, unternehmensinternen Datenschutz nehmen wir sehr ernst. Unsere Mitarbeiter und die von uns beauftragten Dienstleistungsunternehmen sind zur Verschwiegenheit und zur Einhaltung der datenschutzrechtlichen Bestimmungen verpflichtet. Überdies wird diesen der Zugriff auf die persönlichen Daten nur soweit notwendig gewährt.</p>
+
+      <h4>Cookies</h4>
+      <p>Cookies helfen unter anderem, Deinen Besuch auf unserer Website einfacher, angenehmer und sinnvoller zu gestalten. Cookies sind Informationsdateien, die Dein Webbrowser automatisch auf der Festplatte Deines Rechners speichert, wenn Du unsere Website besuchst. Cookies beschädigen weder die Festplatte Deines Computers noch übermitteln sie uns Deine personenbezogenen Daten. Wir verwenden Cookies z.B., um Dich als registrierten Nutzer zu erkennen, ohne dass Du Dich jedes Mal erneut anmelden musst. Verwenden bedeutet in diesem Fall nicht, dass wir neue personenbezogene Daten über Dich als Onlinebesucher erhalten. Die meisten Internetbrowser akzeptieren Cookies automatisch. Du kannst Deinen Browser jedoch so einstellen, dass keine Cookies auf Deinem Rechner abgelegt werden oder Du beim Eintreffen eines neuen Cookies eine Warnmeldung erhältst. Weitere Informationen hierzu findest Du in den Einstellungsoptionen Deines Browsers. Die Deaktivierung von Cookies kann jedoch dazu führen, dass Du nicht alle Funktionen unserer Website nutzen kannst.</p>
+
+      <h4>Tracking-Tools</h4>
+      <p>Zum Zwecke der bedarfsgerechten Gestaltung und fortlaufenden Optimierung unserer Website nutzen wir den Webanalyse-Dienst Google Analytics. In diesem Zusammenhang werden pseudonymisierte Nutzungsprofile erstellt und Cookies verwendet. Die durch den Cookie erzeugten Informationen über Deine Benutzung dieser Website, wie Browser-Typ/-Version, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners (IP-Adresse), Uhrzeit der Serveranfrage, Device, werden an Server von Google Inc. (Alphabet Inc.) in die USA übertragen und dort gespeichert. Die IP-Adresse wird durch „anonymizeIP“ vor der Übermittlung gekürzt. Die Informationen werden verwendet, um die Nutzung der Website auszuwerten, Reports zu erstellen und weitere Dienstleistungen zu erbringen. Nutzer können die Erfassung durch Google Analytics verhindern (siehe http://tools.google.com/dlpage/gaoptout?hl=de).</p>
+
+      <h4>Re-Targeting</h4>
+      <p>Wir setzen Re-Targeting-Technologien ein, um Dir auf Partnerwebseiten individuell zugeschnittene Werbung anbieten zu können. Dein Nutzerverhalten wird dabei pseudonym erfasst. Du kannst dies durch das Ablehnen von Cookies in Deinem Browser verhindern.</p>
+
+      <h4>Google Tag Manager</h4>
+      <p>Zur Verwaltung von Cookies und Pixeln verwenden wir den Google Tag Manager. Das Tool selbst erfasst keine personenbezogenen Daten, löst aber Tags aus, die Daten erfassen können. Eine Deaktivierung auf Domain- oder Cookie-Ebene bleibt für alle implementierten Tags bestehen.</p>
+
+      <h4>Links auf unsere Social Media-Präsenzen</h4>
+      <p>Auf unserer Webseite verlinken wir Social Media-Profile (z.B. LinkedIn). Beim Aufruf eines Links kann eine direkte Verbindung zum jeweiligen Anbieter entstehen. Weitere Details siehe Datenschutzerklärung der jeweiligen Anbieter.</p>
+
+      <h4>Kontakt</h4>
+      <p>Bei Fragen zum Datenschutz, Auskunfts- oder Löschbegehren kontaktiere uns bitte:<br><br>
+      Z22 Technologies AG<br>
+      Data Privacy<br>
+      Alte Steinhauserstrasse 19<br>
+      CH-6330 Cham</p>
+
+      <h4>Einwilligungen</h4>
+      <p>Du erteilst uns folgende Einwilligungen, die Du jederzeit mit Wirkung für die Zukunft widerrufen kannst:<br>
+      – Verwendung der Telefonnummer für After-Sales-Dienstleistungen und Kontaktaufnahme bei Fragen.<br>
+      – Einsatz von Cookies zur Erhebung von Nutzungsdaten für Re-Targeting-Zwecke (Google Tag Manager, Google Doubleclick, Lucky Orange).<br>
+      – Speicherung und Bearbeitung Deiner Personendaten im CRM für personalisierte Werbung.</p>
+
+      <p style="margin-top:0.75rem; color:#666;">Stand: Cham, 01.01.2025</p>
+
+      <hr style="margin:1.25rem 0;">
+
+      <h4>English translation</h4>
+      <p>This website is operated by Z22 Technologies AG, Alte Steinhauserstrasse 19, CH-6330 Cham, Switzerland (UID CHE-485.152.086). We are responsible for the collection, processing and use of your personal data in accordance with applicable law. These data protection provisions form an integral part of our Terms and Conditions. We comply with Swiss data protection law (DSG/VDSG/FM G) and, where applicable, the EU GDPR.</p>
+
+      <p>Below we explain how we process your personal data. This notice may be updated from time to time.</p>
+
+      <h5>When visiting our website</h5>
+      <p>Our servers temporarily store each access in log files (IP address, date/time, requested resource, referrer, OS/browser, country, ISP). Processing is generally anonymized to enable use of the website, ensure security and stability, optimize our offering and for internal statistics. Only in the event of attacks or suspicion of misuse is the IP address evaluated for defense and, where necessary, used for identification within legal proceedings.</p>
+
+      <h5>Disclosure to third parties</h5>
+      <p>Personal data is disclosed only with your consent, where legally required, to enforce our rights, or as necessary for providing services (e.g., order processing, delivery, payment, analytics). Third parties use such data strictly for the stated purposes. One such provider is our web hoster, wix.com.</p>
+
+      <h5>Transfers abroad</h5>
+      <p>We may transfer data to third-party companies abroad where required for requests, services or marketing. Such companies must protect your privacy to the same extent. If a country does not provide an adequate level of protection, we ensure appropriate safeguards. Some providers are based in the USA; see “Tracking-Tools”.</p>
+
+      <h5>Your rights</h5>
+      <p>You may request information, deletion or correction of your stored personal data (with identity verification). Consent can be withdrawn at any time with future effect. Certain data may need to be retained by law.</p>
+
+      <h5>Data security</h5>
+      <p>We apply appropriate technical and organizational measures to protect your data. Access to accounts is password-protected; please keep credentials confidential. Our employees and service providers are bound by confidentiality and data protection obligations.</p>
+
+      <h5>Cookies</h5>
+      <p>Cookies make your visit easier and more useful. You can disable cookies in your browser; some functions may then be unavailable.</p>
+
+      <h5>Tracking tools</h5>
+      <p>We use Google Analytics (with IP anonymization). You can prevent data collection using the browser add-on: http://tools.google.com/dlpage/gaoptout?hl=en.</p>
+
+      <h5>Re-targeting</h5>
+      <p>We use re-targeting technologies to display tailored advertising on partner sites. You can prevent this by disabling cookies.</p>
+
+      <h5>Google Tag Manager</h5>
+      <p>Used to manage tags; the tool itself does not process personal data.</p>
+
+      <h5>Links to our social media profiles</h5>
+      <p>Links to social networks (e.g., LinkedIn) may establish a direct connection. See the respective providers’ privacy notices.</p>
+
+      <h5>Contact</h5>
+      <p>Z22 Technologies AG, Data Privacy, Alte Steinhauserstrasse 19, CH-6330 Cham.</p>
+
+      <h5>Consents</h5>
+      <p>We may use your phone number for after-sales and contact; use cookies for re-targeting (Google Tag Manager, Google Doubleclick, Lucky Orange); and store/process data in our CRM for personalized advertising. You may withdraw consent at any time.</p>
+
+      <p style="margin-top:0.75rem; color:#666;">Last updated: Cham, 01.01.2025</p>
+    `
+  };
+
+  window.openModal = function(id) {
+    const modal = document.getElementById('modal');
+    const body = document.getElementById('modal-body');
+    if (!modal || !body) return;
+    if (legalContent[id]) {
+      body.innerHTML = legalContent[id];
+      modal.style.display = 'block';
+    }
+  };
+})();
+</script>
+
+</body>
+</html>
