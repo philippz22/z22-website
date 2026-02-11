@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Z22 Technologies - Swiss Quant Hedge Fund</title>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z22 Technologies - Swiss Quant Hedge Fund</title>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -247,7 +246,7 @@
         }
 
         .card h3 {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
             color: #000;
@@ -701,6 +700,8 @@
 }
 
 </style>
+    
+    
 <style id="section-spacing-adjustment">
 /* Uniform vertical spacing for key sections (kept readable across viewports) */
 section#about, section#strategies, section#team, section#contact {
@@ -717,492 +718,308 @@ section#about h2, section#strategies h2, section#team h2, section#contact h2 {
   margin-top: 0;
 }
 </style>
-<style>
-/* --- injected: mobile menu open state --- */
-@media (max-width: 768px) {
-  .nav-links.is-open {
-    display: flex !important;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: 0;
-    flex-direction: column;
-    gap: 1rem;
-    background: #fff;
-    padding: 1rem 2rem;
-    border-bottom: 1px solid #eee;
-    z-index: 9999;
-  }
-}
-</style></head>
+</head>
 <body>
-<!-- Header -->
-<header class="header">
-<nav class="nav">
-<a class="logo" href="#">
-<img alt="Z22 Logo" class="logo-icon" src="logo.png"/>
-</a>
-<ul class="nav-links" id="primary-nav">
-<li><a href="#about">About Us</a></li>
-<li><a href="#strategies">Strategies</a></li>
-<li><a href="#team">Team</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-<button aria-controls="primary-nav" aria-expanded="false" class="mobile-menu-toggle" type="button">☰</button>
-</nav>
-</header>
-<!-- Hero Section -->
-<section class="hero">
-<div class="hero-content">
-<h1>Swiss Quant Hedge Fund</h1>
-<p>Specialized in systematic investment strategies for Traditional Finance and Crypto</p>
-<a class="cta-button" href="#strategies">Explore Strategies</a>
-</div>
-</section>
-<!-- About Us Section -->
-<section class="section" id="about">
-<h2>About Us</h2>
-<div class="about-content">
-<div class="about-card">
-<h4>100% Independent</h4>
-<p>We are proud that our company still belongs 100% to the two founders, Philipp Baumann and Armin Herbsthofer</p>
-</div>
-<div class="about-card">
-<h4>Systematic</h4>
-<p>We follow a systematic quant approach without any discretionary decision components. The investment process is fully controlled by intelligent algorithms.</p>
-</div>
-<div class="about-card">
-<h4>Spin-Offs</h4>
-<p>We are proud to be awarded with the spin-off label from ETH Zürich and the University of St. Gallen (HSG)</p>
-</div>
-<div class="about-card">
-<h4>FINMA Regulated</h4>
-<p>We are regulated as an asset manager of collective assets by the Swiss Financial Market Authority (FINMA)</p>
-</div>
-</div>
-</section>
-<!-- Strategies Section -->
-<section class="section" id="strategies">
-<h2>Investment Strategies</h2>
-<div class="color-legend">
-<div class="legend-item">
-<div class="legend-color asset"></div>
-<span>Base Underlying</span>
-</div>
-<div class="legend-item">
-<div class="legend-color target"></div>
-<span>Target/Strategy Type</span>
-</div>
-<div class="legend-item">
-<div class="legend-color product"></div>
-<span>Product Type</span>
-</div>
-<div class="legend-item">
-<div class="legend-color liquidity"></div>
-<span>Liquidity</span>
-</div>
-</div>
-<div class="strategy-filters">
-<button class="filter-btn active" data-filter="all">All</button>
-<button class="filter-btn" data-filter="Equity Strategies">Equity Strategies</button>
-<button class="filter-btn" data-filter="Crypto Strategies">Crypto Strategies</button>
-<button class="filter-btn" data-filter="Bitcoin">Bitcoin</button>
-<button class="filter-btn" data-filter="Multi-Asset / Multi-Strategy">Multi-Asset / Multi-Strategy</button>
-</div>
-<div class="card-grid" id="strategies-grid">
-<!-- Z22 Smart Mirror -->
-<div class="card" data-category="Equity Strategies" data-longdesc="Z22 Smart Mirror offers an innovative investment strategy for investors looking for defensive exposure on the US Equity market.
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">
+                <img src="logo.png" class="logo-icon" alt="Z22 Logo" />
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#strategies">Strategies</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle">☰</button>
+        </nav>
+    </header>
 
-The Z22 Smart Mirror strategy is a systematic  investment strategy that combines US equities (S&amp;P 500) with a statistical tail hedge (Z22 VolaBoost). The strategy is designed for investors who want to participate in the potential upside of the US equity market while having an emotionless and systematically implemented tail hedging component in the strategy. The statistical tail hedge (Z22 VolaBoost) is implemented via long volatility ETFs tracking the VIX Futures." data-strategy-id="smart-mirror">
-<div class="card-category">Equity Strategies</div>
-<h3>Z22 Smart Mirror</h3>
-<p>Defensive strategy consisting of US Equities (S&amp;P 500) combined with a statistical tail hedge.</p>
-<div class="card-tags">
-<span class="tag asset">SPY</span>
-<span class="tag target">Defensive Equity</span>
-<span class="tag product">AMC</span>
-<span class="tag liquidity">Daily</span>
-</div>
-<div class="card-buttons">
-<button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
-<div class="hidden longdesc" id="desc-smart-mirror"><div class="learnmore-wrap">
-<table aria-label="Z22 Smart Mirror details" role="table" style="width:100%; border-collapse:collapse; font-size:0.95em;">
-<tbody>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
-<td style="padding:6px 8px;">Equity Strategies</td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
-<td style="padding:6px 8px;">
-<div class="tags-inline"><span class="tag asset">SPY</span>
-<span class="tag target">Defensive Equity</span>
-<span class="tag product">AMC</span>
-<span class="tag liquidity">Daily</span></div>
-</td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
-<td style="padding:6px 8px;"><div>Z22 Smart Mirror offers an innovative investment strategy for investors looking for defensive exposure on the US Equity market.<br/><br/>The Z22 Smart Mirror strategy is a systematic  investment strategy that combines US equities (S&amp;P 500) with a statistical tail hedge (Z22 VolaBoost). The strategy is designed for investors who want to participate in the potential upside of the US equity market while having an emotionless and systematically implemented tail hedging component in the strategy. The statistical tail hedge (Z22 VolaBoost) is implemented via long volatility ETFs tracking the VIX Futures.</div></td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Links</th>
-<td style="padding:6px 8px;"><a href="https://keyinvest-ch-en.ubs.com/product/detail/index/isin/CH0473589759" rel="noopener noreferrer" target="_blank">USD</a> | <a href="https://keyinvest-ch-en.ubs.com/product/detail/index/isin/CH1114374361" rel="noopener noreferrer" target="_blank">EUR</a> | <a href="https://keyinvest-ch-en.ubs.com/product/detail/index/isin/CH0547935129" rel="noopener noreferrer" target="_blank">CHF</a></td>
-</tr>
-</tbody>
-</table>
-</div></div>
-<a class="btn-secondary" href="mailto:sales@z22.ch?subject=Z22 Smart Mirror - Information Request">Get Info</a>
-</div>
-</div>
-<!-- Z22 Smart Equity -->
-<div class="card" data-category="Equity Strategies" data-longdesc="The Z22 Smart Equity Fund offers an innovative investment strategy that seeks to generate alpha using systematic volatility strategies while offering its investors a long exposure to the US equity market
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Swiss Quant Hedge Fund</h1>
+            <p>Specialized in systematic investment strategies in liquid markets</p>
+            <a href="#strategies" class="cta-button">Explore Strategies</a>
+        </div>
+    </section>
 
-The Z22 Smart Equity Fund is an investment strategy designed for equity investors seeking exposure to the US equity market in combination with volatility and tail hedging strategies. The program implements long, neutral, and short positions in the VIX futures. The program uses S&amp;P 500 (SPY US) as collateral to increase capital efficiency." data-strategy-id="smart-equity">
-<div class="card-category">Equity Strategies</div>
-<h3>Z22 Smart Equity</h3>
-<p>Systematic volatility strategies on top of US Equities (S&amp;P 500).</p>
-<div class="card-tags">
-<span class="tag asset">SPY</span>
-<span class="tag target">Defensive Equity</span>
-<span class="tag product">Fund</span>
-<span class="tag liquidity">Weekly</span>
-</div>
-<div class="card-buttons">
-<button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
-<div class="hidden longdesc" id="desc-smart-equity"><div class="learnmore-wrap">
-<table aria-label="Z22 Smart Equity details" role="table" style="width:100%; border-collapse:collapse; font-size:0.95em;">
-<tbody>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
-<td style="padding:6px 8px;"></td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
-<td style="padding:6px 8px;">
-<div class="tags-inline"><span class="tag asset">SPY</span>
-<span class="tag target">Defensive Equity</span>
-<span class="tag product">Fund</span>
-<span class="tag liquidity">Weekly</span></div>
-</td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
-<td style="padding:6px 8px;"><div>The Z22 Smart Equity Fund offers an innovative investment strategy that seeks to generate alpha using systematic volatility strategies while offering its investors a long exposure to the US equity market<br/><br/>The Z22 Smart Equity Fund is an investment strategy designed for equity investors seeking exposure to the US equity market in combination with volatility and tail hedging strategies. The program implements long, neutral, and short positions in the VIX futures. The program uses S&amp;P 500 (SPY US) as collateral to increase capital efficiency.</div></td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Links</th>
-<td style="padding:6px 8px;"><a href="https://ifm.li/FundStammdaten.aspx?nid=8207&amp;groupnr=8207&amp;lang=de&amp;id=1414978" rel="noopener noreferrer" target="_blank">R-Tranche</a> | <a href="https://ifm.li/FundStammdaten.aspx?nid=8207&amp;groupnr=8207&amp;lang=de&amp;id=1414952&amp;cookieCheck=true" rel="noopener noreferrer" target="_blank">I-Tranche</a></td>
-</tr>
-</tbody>
-</table>
-</div></div>
-<a class="btn-secondary" href="mailto:sales@z22.ch?subject=Z22 Smart Equity - Information Request">Get Info</a>
-</div>
-</div>
-<!-- Z22 Smart CP -->
-<div class="card" data-category="Equity Strategies" data-longdesc="Z22 Smart CP combines S&amp;P 500 exposure with a fully systematic option strategy designed for capital preservation. The portfolio is always hedged against major losses using protective puts, with costs partly offset by selling covered calls — aiming for smoother returns, reduced drawdowns, and steady participation in market upside." data-strategy-id="smart-cp">
-<div class="card-category">Equity Strategies</div>
-<h3>Z22 Smart CP</h3>
-<p>Long US Equities ETF (S&amp;P 500) with systematic option overlay.</p>
-<div class="card-tags">
-<span class="tag asset">SPY</span>
-<span class="tag target">Capital Preservation</span>
-<span class="tag product">AMC</span>
-<span class="tag liquidity">Daily</span>
-</div>
-<div class="card-buttons">
-<button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
-<div class="hidden longdesc" id="desc-smart-cp"><div class="learnmore-wrap">
-<table aria-label="Z22 Smart CP details" role="table" style="width:100%; border-collapse:collapse; font-size:0.95em;">
-<tbody>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
-<td style="padding:6px 8px;"></td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
-<td style="padding:6px 8px;">
-<div class="tags-inline"><span class="tag asset">SPY</span>
-<span class="tag target">Capital Preservation</span>
-<span class="tag product">AMC</span>
-<span class="tag liquidity">Daily</span></div>
-</td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
-<td style="padding:6px 8px;"><div>Z22 Smart CP combines S&amp;P 500 exposure with a fully systematic option strategy designed for capital preservation. The portfolio is always hedged against major losses using protective puts, with costs partly offset by selling covered calls — aiming for smoother returns, reduced drawdowns, and steady participation in market upside.</div></td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Links</th>
-<td style="padding:6px 8px;"><a href="https://keyinvest-ch-en.ubs.com/product/detail/index/isin/CH0473587282" rel="noopener noreferrer" target="_blank">USD</a> | <a href="https://keyinvest-ch-en.ubs.com/product/detail/index/isin/CH0547925146" rel="noopener noreferrer" target="_blank">CHF</a></td>
-</tr>
-</tbody>
-</table>
-</div></div>
-<a class="btn-secondary" href="mailto:sales@z22.ch?subject=Z22 Smart CP - Information Request">Get Info</a>
-</div>
-</div>
-<!-- C22 Strategy -->
-<div class="card" data-category="Crypto Strategies" data-longdesc="The C22 Strategy offers an interesting opportunity for investors looking for exposure to the crypto space, with a focus on low correlation to traditional assets and the crypto market.
+    <!-- About Us Section -->
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-card">
+                <h4>100% Independent</h4>
+                <p>We are proud that our company still belongs 100% to the two founders, Philipp Baumann and Armin Herbsthofer</p>
+            </div>
+            <div class="about-card">
+                <h4>Systematic</h4>
+                <p>We follow a systematic quant approach without any discretionary decision components. The investment process is fully controlled by intelligent algorithms.</p>
+            </div>
+            <div class="about-card">
+                <h4>Spin-Offs</h4>
+                <p>We are proud to be awarded with the spin-off label from ETH Zürich and the University of St. Gallen (HSG)</p>
+            </div>
+            <div class="about-card">
+                <h4>FINMA Regulated</h4>
+                <p>We are regulated as an asset manager of collective assets by the Swiss Financial Market Authority (FINMA)</p>
+            </div>
+        </div>
+    </section>
 
-The C22 Strategy is a Machine Learning-driven crypto mid-frequency trend-following strategy that utilizes a systematic approach to long and short futures (perpetuals) trading in the crypto space." data-strategy-id="c22">
-<div class="card-category">Crypto Strategies</div>
-<h3>C22 Strategy</h3>
-<p>Machine Learning driven crypto trend-following strategy.</p>
-<div class="card-tags">
-<span class="tag asset">USD</span>
-<span class="tag target">Absolute Return</span>
-<span class="tag product">Fund</span>
-<span class="tag liquidity">Weekly</span>
-</div>
-<div class="card-buttons">
-<button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
-<div class="hidden longdesc" id="desc-c22"><div class="learnmore-wrap">
-<table aria-label="C22 Strategy details" role="table" style="width:100%; border-collapse:collapse; font-size:0.95em;">
-<tbody>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
-<td style="padding:6px 8px;">Bitcoin</td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
-<td style="padding:6px 8px;">
-<div class="tags-inline"><span class="tag asset">USD</span>
-<span class="tag target">Absolute Return</span>
-<span class="tag product">Fund</span>
-<span class="tag liquidity">Weekly</span></div>
-</td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
-<td style="padding:6px 8px;"><div>The C22 Strategy offers an interesting opportunity for investors looking for exposure to the crypto space, with a focus on low correlation to traditional assets and the crypto market.<br/><br/>The C22 Strategy is a Machine Learning-driven crypto mid-frequency trend-following strategy that utilizes a systematic approach to long and short futures (perpetuals) trading in the crypto space.</div></td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Links</th>
-<td style="padding:6px 8px;"><a href="https://ifm.li/FundStammdaten.aspx?nid=8207&amp;groupnr=8207&amp;lang=de&amp;id=1415175" rel="noopener noreferrer" target="_blank">USD-Tranche</a></td>
-</tr>
-</tbody>
-</table>
+    <!-- Strategies Section -->
+    <section id="strategies" class="section">
+        <h2>Investment Strategies</h2>
+        
+        <div class="color-legend">
+            <div class="legend-item">
+                <div class="legend-color asset"></div>
+                <span>Share Classes</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color target"></div>
+                <span>Target/Strategy Type</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color product"></div>
+                <span>Product Type</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color liquidity"></div>
+                <span>Liquidity</span>
+            </div>
+        </div>
+
+        <div class="card-grid" id="strategies-grid">
+
+           
+            <!-- Z22 Dynamic Resilience -->
+            <div class="card" data-strategy-id="dynamic-resilience" data-longdesc="More information about Z22 Dynamic Resilience." data-category="All-Weather Base Portfolio">
+                <div class="card-category">All-Weather Base Portfolio</div>
+                <h3>Z22 Dynamic Resilience</h3>
+                <p>Systematic long only all-weather ETF portfolio.</p>
+                <div class="card-tags">
+                    <span class="tag asset">USD/CHF/EUR</span>
+                    <span class="tag target">Smart Beta</span>
+                    <span class="tag product">Fund</span>
+                    <span class="tag liquidity">Daily</span>
+                </div>
+                <div class="card-buttons">
+                    <button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
+<div id="desc-dynamic-resilience" class="hidden longdesc"><div class="learnmore-wrap">
+  <table role="table" aria-label="Z22 Dynamic Resilience details" style="width:100%; border-collapse:collapse; font-size:0.95em;">
+    <tbody>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
+        <td style="padding:6px 8px;">All-Weather Base Portfolio</td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
+        <td style="padding:6px 8px;">
+          <div class="tags-inline"><span class="tag asset">USD/CHF/EUR</span>
+                    <span class="tag target">Smart Beta</span>
+                    <span class="tag product">Fund</span>
+                    <span class="tag liquidity">Daily</span></div>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
+        <td style="padding:6px 8px;"><div>Z22 Dynamic Resilience is a cost-efficient ETF portfolio designed to provide broad diversification across major asset classes, including equities, commodities, fixed income, gold, and bitcoin. The strategy serves as a long-term, all-weather allocation framework and is enhanced by a tactical overlay driven by a trend signal. This approach aims to deliver stability while capturing additional return opportunities across different market environments.</div></td>
+      </tr>
+    </tbody>
+  </table>
 </div></div>
-<a class="btn-secondary" href="mailto:sales@z22.ch?subject=C22 Strategy - Information Request">Get Info</a>
-</div>
-</div>
-<!-- Z22 MSTR Income -->
-<div class="card" data-category="Crypto Strategies" data-longdesc="A fully systematic options-based approach targeting the elevated volatility in MSTR. Our algorithm scans the entire options market in real time, selecting strategies such as covered calls and put writing to maximize premium collection. The goal isn’t to beat MSTR’s price performance, but to consistently capture its high implied volatility premium for steady returns across market conditions." data-strategy-id="mstr-income">
-<div class="card-category">Crypto Strategies</div>
-<h3>Z22 MSTR Income</h3>
-<p>A fully systematic options strategy designed to consistently capture MSTR's elevated volatility premium.</p>
-<div class="card-tags">
-<span class="tag asset">MSTR</span>
-<span class="tag target">Absolute Return</span>
-<span class="tag product">AMC</span>
-<span class="tag liquidity">Daily</span>
-</div>
-<div class="card-buttons">
-<button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
-<div class="hidden longdesc" id="desc-mstr-income"><div class="learnmore-wrap">
-<table aria-label="Z22 MSTR Income details" role="table" style="width:100%; border-collapse:collapse; font-size:0.95em;">
-<tbody>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
-<td style="padding:6px 8px;">Multi-Asset / Multi-Strategy</td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
-<td style="padding:6px 8px;">
-<div class="tags-inline"><span class="tag asset">MSTR</span>
-<span class="tag target">Absolute Return</span>
-<span class="tag product">AMC</span>
-<span class="tag liquidity">Daily</span></div>
-</td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
-<td style="padding:6px 8px;"><div>A fully systematic options-based approach targeting the elevated volatility in MSTR. Our algorithm scans the entire options market in real time, selecting strategies such as covered calls and put writing to maximize premium collection. The goal isn’t to beat MSTR’s price performance, but to consistently capture its high implied volatility premium for steady returns across market conditions.</div></td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Links</th>
-<td style="padding:6px 8px;"><a href="https://structuredproducts-ch.leonteq.com/isin/CH1292091928" rel="noopener noreferrer" target="_blank">USD</a> | <a href="https://structuredproducts-ch.leonteq.com/isin/CH1292091977" rel="noopener noreferrer" target="_blank">CHF</a></td>
-</tr>
-</tbody>
-</table>
+                    <a href="/cdn-cgi/l/email-protection#fa899b969f89ba80c8c8d49992c5898f98909f998ec7a0c8c8dabe83949b979399daa89f899396939f94999fdad7dab3949c9588979b8e939594daa89f8b8f9f898e" class="btn-secondary">Get Info</a>
+                </div>
+            </div>
+
+            <!-- Z22 Dynamic Opportunity -->
+            <div class="card" data-strategy-id="dynamic-opportunity" data-longdesc="More information about Z22 Dynamic Opportunity." data-category="Market Neutral Hedge Fund">
+                <div class="card-category">Market Neutral Hedge Fund</div>
+                <h3>Z22 Dynamic Opportunity</h3>
+                <p>Systematic liquid alternative multi strategy solution.</p>
+                <div class="card-tags">
+                    <span class="tag asset">USD/CHF/EUR</span>
+                    <span class="tag target">Absolute Return</span>
+                    <span class="tag product">Fund</span>
+                    <span class="tag liquidity">Monthly</span>
+                </div>
+                <div class="card-buttons">
+                    <button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
+<div id="desc-dynamic-opportunity" class="hidden longdesc"><div class="learnmore-wrap">
+  <table role="table" aria-label="Z22 Dynamic Opportunity details" style="width:100%; border-collapse:collapse; font-size:0.95em;">
+    <tbody>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
+        <td style="padding:6px 8px;">Market Neutral Hedge Fund</td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
+        <td style="padding:6px 8px;">
+          <div class="tags-inline"><span class="tag asset">USD/CHF/EUR</span>
+                    <span class="tag target">Absolute Return</span>
+                    <span class="tag product">Fund</span>
+                    <span class="tag liquidity">Monthly</span></div>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
+        <td style="padding:6px 8px;"><div>Z22 Dynamic Opportunity is a systematic, multi-strategy solution designed to deliver true diversification beyond traditional asset classes. By employing liquid, transparent, and quantitative approaches, the strategy accesses a broad range of uncorrelated return sources - spanning market-neutral, non-directional, and selectively directional strategies. The objective is to generate consistent, risk-adjusted returns across market environments while providing investors with institutional-quality access to alternative drivers of performance.</div></td>
+      </tr>
+    </tbody>
+  </table>
 </div></div>
-<a class="btn-secondary" href="mailto:sales@z22.ch?subject=Z22 MSTR Income - Information Request">Get Info</a>
-</div>
-</div>
-<!-- Z22 Dynamic Resilience -->
-<div class="card" data-category="Multi-Asset / Multi-Strategy" data-longdesc="More information about Z22 Dynamic Resilience." data-strategy-id="dynamic-resilience">
-<div class="card-category">Multi-Asset / Multi-Strategy</div>
-<h3>Z22 Dynamic Resilience</h3>
-<p>Systematic long only all weather ETF portfolio.</p>
-<div class="card-tags">
-<span class="tag asset">ETFs</span>
-<span class="tag target">Absolute Return</span>
-<span class="tag product">AMC</span>
-<span class="tag liquidity">Daily</span>
-</div>
-<div class="card-buttons">
-<button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
-<div class="hidden longdesc" id="desc-dynamic-resilience"><div class="learnmore-wrap">
-<table aria-label="Z22 Dynamic Resilience details" role="table" style="width:100%; border-collapse:collapse; font-size:0.95em;">
-<tbody>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
-<td style="padding:6px 8px;">Multi-Asset / Multi-Strategy</td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
-<td style="padding:6px 8px;">
-<div class="tags-inline"><span class="tag asset">ETFs</span>
-<span class="tag target">Absolute Return</span>
-<span class="tag product">AMC</span>
-<span class="tag liquidity">Daily</span></div>
-</td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
-<td style="padding:6px 8px;"><div><p>Z22 Dynamic Resilience offers a stable investment strategy with a systematic tactical overlay that seeks to generate additional returns.</p>
-<p>Z22 Dynamic Resilience is designed for investors seeking a stable, long-only ETF allocation with an intelligent, systematic tactical overlay. The program is implemented via cost-efficient ETFs across multiple asset classes, including equities, commodities, fixed income, gold and bitcoin, to provide exposure to all the traditional asset class.</p>
-<p>The program’s approach involves defining a strategic base allocation that performs well in all market cycles, combined with a systematic tactical overlay that aims to create extra returns above the static baseline portfolio. This dynamic ETF strategy seeks to take advantage of market inefficiencies and trends by adjusting the portfolio’s allocation based on quantitative signals.</p></div></td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Links</th>
-<td style="padding:6px 8px;"><a href="https://structuredproducts-ch.leonteq.com/isin/CH1447738225" rel="noopener noreferrer" target="_blank">Z22 Dynamic Resilience</a></td>
-</tr>
-</tbody>
-</table>
+                    <a href="/cdn-cgi/l/email-protection#fa899b969f89ba80c8c8d49992c5898f98909f998ec7a0c8c8dabe83949b979399daa89f899396939f94999fdad7dab3949c9588979b8e939594daa89f8b8f9f898e" class="btn-secondary">Get Info</a>
+                </div>
+            </div>
+
+            <!-- Z22 Iron Balls -->
+            <div class="card" data-strategy-id="iron-balls" data-longdesc="Z22 Iron Balls is a high-conviction Bitcoin strategy that keeps a permanent BTC core while applying systematic overlays to actively harness volatility and compound purchasing power across market cycles. The approach blends macro, on-chain, and sentiment analysis to determine the optimal mix of overlays at any given time. These include systematic trend-following to capture directional momentum in BTC and select liquid cryptocurrencies, systematic option selling to monetize elevated implied volatility, cross-exchange arbitrage to exploit pricing inefficiencies in perpetual futures, and volatility premium harvesting to accumulate BTC during distressed markets. By dynamically combining these strategies around a constant Bitcoin base, Z22 Iron Balls seeks to turn Bitcoin’s volatility from a challenge into a long-term growth engine." data-category="Bitcoin Alpha Hedge Fund">
+                <div class="card-category">Bitcoin Alpha Hedge Fund</div>
+                <h3>Z22 Iron Balls</h3>
+                <p>A high conviction Bitcoin strategy with systematic overlays.</p>
+                <div class="card-tags">
+                    <span class="tag asset">BTC</span>
+                    <span class="tag target">BTC Yield</span>
+                    <span class="tag product">Fund</span>
+                    <span class="tag liquidity">Monthly</span>
+                </div>
+                <div class="card-buttons">
+                    <button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
+<div id="desc-iron-balls" class="hidden longdesc"><div class="learnmore-wrap">
+  <table role="table" aria-label="Z22 Iron Balls details" style="width:100%; border-collapse:collapse; font-size:0.95em;">
+    <tbody>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
+        <td style="padding:6px 8px;">Bitcoin Alpha Hedge Fund</td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
+        <td style="padding:6px 8px;">
+          <div class="tags-inline"><span class="tag asset">BTC</span>
+                    <span class="tag target">BTC Yield</span>
+                    <span class="tag product">Fund</span>
+                    <span class="tag liquidity">Monthly</span></div>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
+        <td style="padding:6px 8px;"><div>Z22 Iron Balls is a high-conviction Bitcoin strategy that keeps a permanent BTC core while applying systematic overlays to actively harness volatility and compound purchasing power across market cycles. The approach blends macro, on-chain, and sentiment analysis to determine the optimal mix of overlays at any given time. These include systematic trend-following to capture directional momentum in BTC and select liquid cryptocurrencies, systematic option selling to monetize elevated implied volatility, cross-exchange arbitrage to exploit pricing inefficiencies in perpetual futures, and volatility premium harvesting to accumulate BTC during distressed markets. By dynamically combining these strategies around a constant Bitcoin base, Z22 Iron Balls seeks to turn Bitcoin’s volatility from a challenge into a long-term growth engine.</div></td>
+      </tr>
+    </tbody>
+  </table>
 </div></div>
-<a class="btn-secondary" href="mailto:sales@z22.ch?subject=Z22 Dynamic Resilience - Information Request">Get Info</a>
-</div>
-</div>
-<!-- Z22 Iron Balls -->
-<div class="card" data-category="Bitcoin" data-longdesc="Z22 Iron Balls is a high-conviction Bitcoin strategy that keeps a permanent BTC core while applying systematic overlays to actively harness volatility and compound purchasing power across market cycles. The approach blends macro, on-chain, and sentiment analysis to determine the optimal mix of overlays at any given time. These include systematic trend-following to capture directional momentum in BTC and select liquid cryptocurrencies, systematic option selling to monetize elevated implied volatility, cross-exchange arbitrage to exploit pricing inefficiencies in perpetual futures, and volatility premium harvesting to accumulate BTC during distressed markets. By dynamically combining these strategies around a constant Bitcoin base, Z22 Iron Balls seeks to turn Bitcoin’s volatility from a challenge into a long-term growth engine." data-strategy-id="iron-balls">
-<div class="card-category">Bitcoin</div>
-<h3>Z22 Iron Balls</h3>
-<p>A high conviction Bitcoin strategy with systematic overlays.</p>
-<div class="card-tags">
-<span class="tag asset">BTC</span>
-<span class="tag target">BTC Yield</span>
-<span class="tag product">Fund</span>
-<span class="tag liquidity">Monthly</span>
-</div>
-<div class="card-buttons">
-<button class="btn-primary" onclick="openCardModal(this)">Learn More</button>
-<div class="hidden longdesc" id="desc-iron-balls"><div class="learnmore-wrap">
-<table aria-label="Z22 Iron Balls details" role="table" style="width:100%; border-collapse:collapse; font-size:0.95em;">
-<tbody>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px; width:180px;">Category</th>
-<td style="padding:6px 8px;">Bitcoin</td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Tags</th>
-<td style="padding:6px 8px;">
-<div class="tags-inline"><span class="tag asset">BTC</span>
-<span class="tag target">BTC Yield</span>
-<span class="tag product">Fund</span>
-<span class="tag liquidity">Monthly</span></div>
-</td>
-</tr>
-<tr>
-<th scope="row" style="text-align:left; vertical-align:top; padding:6px 8px;">Description</th>
-<td style="padding:6px 8px;"><div>Z22 Iron Balls is a high-conviction Bitcoin strategy that keeps a permanent BTC core while applying systematic overlays to actively harness volatility and compound purchasing power across market cycles. The approach blends macro, on-chain, and sentiment analysis to determine the optimal mix of overlays at any given time. These include systematic trend-following to capture directional momentum in BTC and select liquid cryptocurrencies, systematic option selling to monetize elevated implied volatility, cross-exchange arbitrage to exploit pricing inefficiencies in perpetual futures, and volatility premium harvesting to accumulate BTC during distressed markets. By dynamically combining these strategies around a constant Bitcoin base, Z22 Iron Balls seeks to turn Bitcoin’s volatility from a challenge into a long-term growth engine.</div></td>
-</tr>
-</tbody>
-</table>
-</div></div>
-<a class="btn-secondary" href="mailto:sales@z22.ch?subject=Z22 Iron Balls - Information Request">Get Info</a>
-</div>
-</div>
-</div>
-</section>
-<!-- Team Section -->
-<section class="section" id="team">
-<h2>Team</h2>
-<div class="team-grid">
-<div class="team-member">
-<h4>Philipp Baumann</h4>
-<div class="role">Founder</div>
-<div class="education">Master of Arts in Business Management University of St. Gallen (HSG)</div>
-<div class="linkedin">
-<a href="https://www.linkedin.com/in/philipp-baumann-715a9691/" target="_blank">
-<img alt="LinkedIn" class="linkedin-icon" src="linkedin_logo.png"/>
-</a>
-</div>
-</div>
-<div class="team-member">
-<h4>Armin Herbsthofer</h4>
-<div class="role">Founder</div>
-<div class="education">Master of Science in Physics from Federal Institute of Technology Zurich (ETH)</div>
-<div class="linkedin">
-<a href="https://www.linkedin.com/in/armin-herbsthofer/" target="_blank">
-<img alt="LinkedIn" class="linkedin-icon" src="linkedin_logo.png"/>
-</a>
-</div>
-</div>
-<div class="team-member">
-<h4>Prof. Dr. Josef Teichmann</h4>
-<div class="role">Board of Directors</div>
-<div class="education">Professor for Financial Mathematics at Federal Institute of Technology Zurich (ETH)</div>
-</div>
-<div class="team-member">
-<h4>Thomas Hochstrasser</h4>
-<div class="role">Board of Directors</div>
-<div class="education">Partner at Niederer, Kraft &amp; Frey</div>
-<div class="linkedin">
-<a href="https://www.linkedin.com/in/thomas-hochstrasser-71589a53/" target="_blank">
-<img alt="LinkedIn" class="linkedin-icon" src="linkedin_logo.png"/>
-</a>
-</div>
-</div>
-<div class="team-member">
-<h4>Thomas Hirsiger</h4>
-<div class="role">Board of Directors</div>
-<div class="education">Entrepreneur and owner of Finiens Wealth Management</div>
-<div class="linkedin">
-<a href="https://www.linkedin.com/in/hirsiger-thomas-a1520b83/" target="_blank">
-<img alt="LinkedIn" class="linkedin-icon" src="linkedin_logo.png"/>
-</a>
-</div>
-</div>
-</div>
-</section>
-<!-- Contact Section -->
-<section class="section" id="contact">
-<h2>Get In Touch</h2>
-<div style="text-align: center;">
-<p style="margin-bottom: 2rem;">Click ‘Contact Us’ to send your details or join our newsletter - we’ll reply shortly.</p>
-<a class="cta-button" href="mailto:hello@z22.ch?subject=Contact Request">Contact Us</a>
-</div>
-</section>
-<!-- Footer -->
-<footer class="footer">
-<div class="footer-content">
-<div class="footer-left">
-<h4>Z22 Technologies AG</h4>
-<p>Alte Steinhauserstrasse 19</p>
-<p>CH-6330 Cham</p>
-<p>Switzerland</p>
-</div>
-<div class="footer-right">
-<h4>Legal</h4>
-<p><a href="#" onclick="openCardModal(this)">Imprint</a></p>
-<p><a href="#" onclick="openCardModal(this)">Data Security</a></p>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2025 Z22 Technologies AG. All rights reserved.</p>
-</div>
-</footer>
-<!-- Modal -->
-<div class="modal" id="modal">
-<div class="modal-content">
-<button class="modal-close" onclick="closeModal()">×</button>
-<div id="modal-body"></div>
-</div>
-</div>
-<script>
+                    <a href="/cdn-cgi/l/email-protection#3241535e5741724800001c515a0d414750585751460f680000127b405d5c1270535e5e41121f127b5c545d405f53465b5d5c1260574347574146" class="btn-secondary">Get Info</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section">
+        <h2>Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <h4>Philipp Baumann</h4>
+                <div class="role">Founder</div>
+                <div class="education">Master of Arts in Business Management University of St. Gallen (HSG)</div>
+                <div class="linkedin">
+                    <a href="https://www.linkedin.com/in/philipp-baumann-715a9691/" target="_blank">
+                        <img src="linkedin_logo.png" class="linkedin-icon" alt="LinkedIn" />
+                    </a>
+                </div>
+            </div>
+            <div class="team-member">
+                <h4>Armin Herbsthofer</h4>
+                <div class="role">Founder</div>
+                <div class="education">Master of Science in Physics from Federal Institute of Technology Zurich (ETH)</div>
+                <div class="linkedin">
+                    <a href="https://www.linkedin.com/in/armin-herbsthofer/" target="_blank">
+                        <img src="linkedin_logo.png" class="linkedin-icon" alt="LinkedIn" />
+                    </a>
+                </div>
+            </div>
+            <div class="team-member">
+                <h4>Severin Lehmann</h4>
+                <div class="role">Compliance & Risk Management</div>
+                <div class="education">Director and Account Manager at SwissComply AG</div>
+                <div class="linkedin">
+                    <a href="https://www.linkedin.com/in/severin-lehmann-028483145/" target="_blank">
+                        <img src="linkedin_logo.png" class="linkedin-icon" alt="LinkedIn" />
+                    </a>
+                </div>
+            </div>
+            <div class="team-member">
+                <h4>Thomas Hochstrasser</h4>
+                <div class="role">Board of Directors</div>
+                <div class="education">Partner at Niederer, Kraft & Frey</div>
+                <div class="linkedin">
+                    <a href="https://www.linkedin.com/in/thomas-hochstrasser-71589a53/" target="_blank">
+                        <img src="linkedin_logo.png" class="linkedin-icon" alt="LinkedIn" />
+                    </a>
+                </div>
+            </div>
+            <div class="team-member">
+                <h4>Thomas Hirsiger</h4>
+                <div class="role">Board of Directors</div>
+                <div class="education">Entrepreneur and owner of Finiens Wealth Management</div>
+                <div class="linkedin">
+                    <a href="https://www.linkedin.com/in/hirsiger-thomas-a1520b83/" target="_blank">
+                        <img src="linkedin_logo.png" class="linkedin-icon" alt="LinkedIn" />
+                    </a>
+                </div>
+            </div>
+            <div class="team-member">
+                <h4>Prof. Dr. Josef Teichmann</h4>
+                <div class="role">Board of Directors</div>
+                <div class="education">Professor for Financial Mathematics at Federal Institute of Technology Zurich (ETH)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2>Get In Touch</h2>
+        <div style="text-align: center;">
+            <p style="margin-bottom: 2rem;">Click ‘Contact Us’ to send your details or join our newsletter - we’ll reply shortly.</p>
+            <a href="/cdn-cgi/l/email-protection#b2dad7dededdf2c880809cd1da8dc1c7d0d8d7d1c68ff1dddcc6d3d1c692e0d7c3c7d7c1c6" class="cta-button">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h4>Z22 Technologies AG</h4>
+                <p>Alte Steinhauserstrasse 19</p>
+                <p>CH-6330 Cham</p>
+                <p>Switzerland</p>
+            </div>
+            
+            <div class="footer-right">
+                <h4>Legal</h4>
+                <p><a href="#" onclick="openCardModal(this)">Imprint</a></p>
+                <p><a href="#" onclick="openCardModal(this)">Data Security</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Z22 Technologies AG. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 document.addEventListener('DOMContentLoaded', function() {
   // --- Utilities
   const norm = (s='') => s.toLowerCase().replace(/[^a-z0-9]+/g,' ').trim().replace(/\s+/g,' ');
@@ -1264,6 +1081,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
+
+
 <script>
 window.openCardModal = function(btn) {
   try {
@@ -1411,7 +1230,7 @@ window.openCardModal = function(btn) {
   <p style="margin:0 0 1em 0;"></p>
 
 
-  <p>Cham, 01 January 2025</p>
+  <p>Cham, 01 January 2026</p>
 </div>`;
       }
 
@@ -1482,7 +1301,7 @@ if (linkText === 'imprint' || titleLower === 'imprint') {
   <p style="margin:0 0 1em 0;"></p>
 
 
-  <p>Cham, 01 January 2025</p>
+  <p>Cham, 01 January 2026</p>
 </div>`;
 }
 
@@ -1499,6 +1318,8 @@ if (linkText === 'imprint' || titleLower === 'imprint') {
   }
 };
 </script>
+
+
 <script>
 (function(){
   const legalContent = {
@@ -1535,7 +1356,7 @@ if (linkText === 'imprint' || titleLower === 'imprint') {
       <h4>Cookies</h4>
       <p>Diese Website verwendet Cookies. Cookies sind kleine Textdateien, die beim Besuch dieser Website in Ihrem Computer dauerhaft oder temporär gespeichert werden. Zweck der Cookies ist insbesondere die Analyse der Nutzung dieser Website zur statistischen Auswertung sowie für kontinuierliche Verbesserungen. In Ihrem Browser können Sie Cookies in den Einstellungen jederzeit ganz oder teilweise deaktivieren. Bei deaktivierten Cookies stehen Ihnen allenfalls nicht mehr alle Funktionen dieser Website zur Verfügung.</p>
 
-      <p style="margin-top:0.75rem; color:#666;">Stand: Cham, 01.01.2025</p>
+      <p style="margin-top:0.75rem; color:#666;">Stand: Cham, 01.01.2026</p>
 
       <hr style="margin:1.25rem 0;">
 
@@ -1570,7 +1391,7 @@ if (linkText === 'imprint' || titleLower === 'imprint') {
       <h5>Cookies</h5>
       <p>This website uses cookies. Cookies are small text files stored on your computer permanently or temporarily when you visit this website. The purpose of cookies is, in particular, the analysis of the use of this website for statistical evaluation and continuous improvements. You can deactivate cookies in your browser settings at any time, in whole or in part. If cookies are deactivated, not all functions of this website may be available.</p>
 
-      <p style="margin-top:0.75rem; color:#666;">Last updated: Cham, 01.01.2025</p>
+      <p style="margin-top:0.75rem; color:#666;">Last updated: Cham, 01.01.2026</p>
     `,
     privacy: `
       <h3 style="margin-bottom:0.75rem;">Data Security</h3>
@@ -1634,7 +1455,7 @@ if (linkText === 'imprint' || titleLower === 'imprint') {
       – Einsatz von Cookies zur Erhebung von Nutzungsdaten für Re-Targeting-Zwecke (Google Tag Manager, Google Doubleclick, Lucky Orange).<br>
       – Speicherung und Bearbeitung Deiner Personendaten im CRM für personalisierte Werbung.</p>
 
-      <p style="margin-top:0.75rem; color:#666;">Stand: Cham, 01.01.2025</p>
+      <p style="margin-top:0.75rem; color:#666;">Stand: Cham, 01.01.2026</p>
 
       <hr style="margin:1.25rem 0;">
 
@@ -1674,67 +1495,4 @@ if (linkText === 'imprint' || titleLower === 'imprint') {
       <p>Links to social networks (e.g., LinkedIn) may establish a direct connection. See the respective providers’ privacy notices.</p>
 
       <h5>Contact</h5>
-      <p>Z22 Technologies AG, Data Privacy, Alte Steinhauserstrasse 19, CH-6330 Cham.</p>
-
-      <h5>Consents</h5>
-      <p>We may use your phone number for after-sales and contact; use cookies for re-targeting (Google Tag Manager, Google Doubleclick, Lucky Orange); and store/process data in our CRM for personalized advertising. You may withdraw consent at any time.</p>
-
-      <p style="margin-top:0.75rem; color:#666;">Last updated: Cham, 01.01.2025</p>
-    `
-  };
-
-  window.openModal = function(id) {
-    const modal = document.getElementById('modal');
-    const body = document.getElementById('modal-body');
-    if (!modal || !body) return;
-    if (legalContent[id]) {
-      body.innerHTML = legalContent[id];
-      modal.style.display = 'block';
-    }
-  };
-})();
-</script>
-<script>
-// --- injected: mobile nav toggle (iOS-safe) ---
-document.addEventListener('DOMContentLoaded', function () {
-  var menuBtn = document.querySelector('.mobile-menu-toggle');
-  var navList = document.querySelector('.nav-links');
-
-  if (!menuBtn || !navList) return;
-
-  if (!navList.id) navList.id = 'primary-nav';
-  menuBtn.setAttribute('aria-controls', navList.id);
-  menuBtn.setAttribute('aria-expanded', 'false');
-  menuBtn.setAttribute('type', 'button');
-
-  var closeMenu = function () {
-    navList.classList.remove('is-open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-  };
-
-  var toggleMenu = function () {
-    var open = !navList.classList.contains('is-open');
-    navList.classList.toggle('is-open', open);
-    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  };
-
-  // Prefer pointer events for iOS reliability
-  menuBtn.addEventListener('pointerup', function (e) { e.preventDefault(); toggleMenu(); });
-
-  // Close when a nav link is tapped
-  navList.addEventListener('click', function (e) {
-    if (e.target.closest('a')) closeMenu();
-  });
-
-  // Close on outside tap
-  document.addEventListener('click', function (e) {
-    if (!e.target.closest('nav')) closeMenu();
-  });
-
-  // Close on Escape
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeMenu();
-  });
-});
-</script></body>
-</html>
+      <p>Z22 Technologies AG, Data Privacy, Alte Steinhausers
