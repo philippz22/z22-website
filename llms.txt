@@ -1,0 +1,42 @@
+# Z22 Technologies AG
+
+> Z22 Technologies is an independent, founder-owned Swiss quant asset manager - FINMA-regulated as a manager of collective assets (Verwalter von Kollektivvermögen) and an official spin-off of ETH Zürich and the University of St. Gallen (HSG). It builds all-weather and absolute-return strategies in liquid markets - across both classic assets and digital assets (crypto) - driven entirely by algorithms, never by discretion. Website available in English and German.
+
+## Company facts
+- Founded: 2019, Cham (Canton of Zug), Switzerland
+- Regulation: authorised and directly, prudentially supervised by FINMA as a manager of collective assets (Verwalter von Kollektivvermögen; Art. 7 ff. FINIG). One of only a few Swiss managers of collective assets, and fewer still with genuine expertise across both classic assets and digital assets.
+- Ownership: 100% owner-led and independent; the founders co-invest their own capital in the same strategies offered to clients.
+- Labels: official spin-off of ETH Zürich and HSG St. Gallen.
+- Clients: entrepreneurs, family offices, and the wealth managers / external asset managers (EAMs) who serve them. For professional, qualified and institutional investors only.
+- Founders: Philipp Baumann (MA Business Management, HSG), Armin Herbsthofer (MSc Physics, ETH Zürich)
+- Address: Alte Steinhauserstrasse 19, CH-6330 Cham, Switzerland (UID CHE-485.152.086)
+- Contact: hello@z22.ch (general), sales@z22.ch (products)
+
+## Strategies
+- Z22 Dynamic Resilience (Z22-DR): all-weather base portfolio, long-only trend following across liquid asset classes (equities, government bonds, commodities, gold, Bitcoin, cash) via ETFs. USD/CHF/EUR. Daily liquidity. 0.25% p.a. No leverage, no derivatives.
+- Z22 Dynamic Opportunity (Z22-DO): market-neutral / absolute-return multi-strategy. USD/CHF/EUR. Monthly. 20% performance fee (HWM), no management fee.
+- Z22 Iron Balls (Z22-IB): high-conviction Bitcoin strategy with systematic overlays. BTC. Monthly.
+- Z22 Smart Mirror (Z22-SM): US equity (S&P 500) with a statistical tail hedge (Z22 VolaBoost). USD/CHF/EUR. Daily. AMC.
+- C22 Crypto Strategy (C22-CS): systematic crypto trend-following, long/short across the most liquid coins. USD. Weekly.
+
+## Business partners
+- Product partners: UBS, Leonteq, Liechtensteinische Landesbank, LGT, Bank Frick
+- Brokers: Interactive Brokers, OKX, Binance, Deribit, Coinbase, Kraken
+- Compliance, risk & legal: SwissComply, Niederer Kraft & Frey (NKF), Ogier, Ombudsstelle für Finanzdienstleister (OFD)
+- Fund vehicles: Z22 SICAV (Liechtenstein), Z22 SPC (Cayman)
+- Audit: Grant Thornton, Baker Tilly
+- Fund services: NAV Consulting, IFM Independent Fund Management, Hawksford, Harney Fiduciary
+
+## Principles
+- Systematic, transparent, liquid. Driven entirely by algorithms, never by discretion.
+- Aligned and independent: the founders co-invest alongside clients; the same interests, free from external agendas.
+- Stability first, with additional return opportunities across all market phases.
+- A real person behind every strategy - often a founder. For professional, qualified and institutional investors only.
+
+## Keywords
+Swiss quant asset manager, manager of collective assets, Verwalter von Kollektivvermögen, FINMA-regulated, directly supervised, systematic investing, all-weather portfolio, absolute return, quantitative asset management, digital assets, crypto, Bitcoin, tail hedge, family office, wealth manager, EAM, ETH Zürich spin-off, HSG spin-off.
+
+## Links
+- Website (English): https://www.z22.ch
+- Website (Deutsch): https://www.z22.ch/index.de.html
+- Imprint and Data Security: see the footer of https://www.z22.ch
