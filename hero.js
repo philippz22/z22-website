@@ -67,7 +67,7 @@
       ctx.stroke();
       // moving probe dot on accent line
       if (ln.accent) {
-        const u = (t * 0.06) % 1;
+        const u = (t * 0.03) % 1; // Durchlauf des Punktes; kleiner = langsamer
         const x = u * W;
         const y = (ln.baseY
           + Math.sin(u * ln.freq * Math.PI * 2 + ln.phase + t * ln.speed) * ln.amp
